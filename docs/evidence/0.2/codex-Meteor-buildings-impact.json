@@ -1,0 +1,386 @@
+{
+  "state": {
+    "inGame": true,
+    "open": true,
+    "picking": false,
+    "selected": "Meteor",
+    "level": 5,
+    "seconds": 60,
+    "warning": 15,
+    "citywide": false,
+    "direction": 0,
+    "message": "已触发“陨石”，强度 5。",
+    "frame": 16395451,
+    "types": [
+      {
+        "id": "Earthquake",
+        "name": "地震",
+        "kind": "earthquake",
+        "nativeName": "自定义 · 地震"
+      },
+      {
+        "id": "Meteor",
+        "name": "陨石",
+        "kind": "meteor",
+        "nativeName": "自定义 · 陨石"
+      },
+      {
+        "id": "Sinkhole",
+        "name": "地面塌陷",
+        "kind": "sinkhole",
+        "nativeName": "自定义 · 地面塌陷"
+      },
+      {
+        "id": "Building Fire",
+        "name": "建筑火灾",
+        "kind": "building",
+        "nativeName": "Building Fire"
+      },
+      {
+        "id": "Forest Fire",
+        "name": "森林火灾",
+        "kind": "forest",
+        "nativeName": "Forest Fire"
+      },
+      {
+        "id": "Hail Storm",
+        "name": "冰雹",
+        "kind": "weather",
+        "nativeName": "Hail Storm"
+      },
+      {
+        "id": "Tornado",
+        "name": "龙卷风",
+        "kind": "weather",
+        "nativeName": "Tornado"
+      },
+      {
+        "id": "Tsunami",
+        "name": "海啸",
+        "kind": "tsunami",
+        "nativeName": "Tsunami"
+      },
+      {
+        "id": "Flood",
+        "name": "洪水",
+        "kind": "flood",
+        "nativeName": "Flood"
+      },
+      {
+        "id": "Lightning Strike",
+        "name": "雷击",
+        "kind": "weather",
+        "nativeName": "Lightning Strike"
+      }
+    ],
+    "target": null,
+    "canSpawn": false,
+    "pending": false,
+    "active": [
+      {
+        "id": 899908,
+        "version": 3,
+        "name": "建筑火灾",
+        "variant": "DisasterControlPanel.Building Fire.L5",
+        "seconds": -1.0,
+        "weather": null,
+        "custom": null
+      },
+      {
+        "id": 899905,
+        "version": 3,
+        "name": "建筑火灾",
+        "variant": "DisasterControlPanel.Building Fire.L5",
+        "seconds": -1.0,
+        "weather": null,
+        "custom": null
+      },
+      {
+        "id": 899902,
+        "version": 3,
+        "name": "建筑火灾",
+        "variant": "DisasterControlPanel.Building Fire.L5",
+        "seconds": -1.0,
+        "weather": null,
+        "custom": null
+      },
+      {
+        "id": 899898,
+        "version": 3,
+        "name": "建筑火灾",
+        "variant": "DisasterControlPanel.Building Fire.L5",
+        "seconds": -1.0,
+        "weather": null,
+        "custom": null
+      },
+      {
+        "id": 558142,
+        "version": 7,
+        "name": "陨石",
+        "variant": "DisasterControlPanel.Meteor.L5",
+        "seconds": 60.0,
+        "weather": null,
+        "custom": {
+          "kind": 2,
+          "phase": 1,
+          "warningSeconds": 0.0,
+          "damaged": 34,
+          "destroyed": 7,
+          "warned": 68,
+          "terrainApplied": 1,
+          "radius": 190.0,
+          "depth": 23.0
+        }
+      }
+    ]
+  },
+  "evac": {
+    "endangered": 68,
+    "controlled": 68,
+    "toShelter": 115,
+    "sheltered": 0,
+    "capacity": 25000,
+    "occupants": 0,
+    "shelters": 1,
+    "buses": 0,
+    "lastDamaged": 34,
+    "lastDestroyed": 7,
+    "lastWarned": 68,
+    "lastTerrainApplied": 1,
+    "visualCount": 1,
+    "shaderAvailable": true,
+    "craterEnabled": true,
+    "craterUpdates": 8197,
+    "craterEvents": 1
+  },
+  "targets": [
+    {
+      "index": 59082,
+      "version": 1,
+      "x": 1522.62878,
+      "y": 13.500206,
+      "z": 124.062065,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 1.0,
+        "water": null,
+        "created": false,
+        "destroyed": true,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59062,
+      "version": 1,
+      "x": 1340.90662,
+      "y": 13.500206,
+      "z": 320.588379,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.0,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59063,
+      "version": 1,
+      "x": 1665.44373,
+      "y": 13.4878159,
+      "z": 186.793549,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.281382233,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59064,
+      "version": 1,
+      "x": 1527.67725,
+      "y": 13.500206,
+      "z": 324.5089,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.0,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59065,
+      "version": 1,
+      "x": 1612.39063,
+      "y": 13.500206,
+      "z": 178.537964,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.71099627,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59066,
+      "version": 1,
+      "x": 1658.646,
+      "y": 13.4773026,
+      "z": 122.4654,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.4492243,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59067,
+      "version": 1,
+      "x": 1749.39258,
+      "y": 13.475975,
+      "z": 195.319763,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.0,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59068,
+      "version": 1,
+      "x": 1525.31958,
+      "y": 13.4901352,
+      "z": 220.535645,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.7865878,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59069,
+      "version": 1,
+      "x": 1749.59326,
+      "y": 13.4795609,
+      "z": 163.3204,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.0,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59070,
+      "version": 1,
+      "x": 1476.1665,
+      "y": 13.4630346,
+      "z": 255.003464,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.431243569,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59071,
+      "version": 1,
+      "x": 1794.615,
+      "y": 13.500206,
+      "z": 120.869347,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.0,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    },
+    {
+      "index": 59072,
+      "version": 1,
+      "x": 1338.6416,
+      "y": 13.48188,
+      "z": 126.221733,
+      "burning": false,
+      "after": {
+        "exists": true,
+        "burning": false,
+        "intensity": 0.0,
+        "fireEvent": 0,
+        "damage": 0.0558159426,
+        "water": null,
+        "created": false,
+        "destroyed": false,
+        "hotspotFrames": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "evac": {
+    "endangered": 1430,
+    "controlled": 1430,
+    "toShelter": 7086,
+    "sheltered": 0,
+    "capacity": 25000,
+    "occupants": 0,
+    "shelters": 1,
+    "buses": 0,
+    "lastDamaged": 0,
+    "lastDestroyed": 0,
+    "lastWarned": 1430,
+    "lastTerrainApplied": 0,
+    "visualCount": 0,
+    "shaderAvailable": true
+  },
+  "state": {
+    "inGame": true,
+    "open": true,
+    "picking": false,
+    "selected": null,
+    "level": 5,
+    "seconds": 60,
+    "warning": 30,
+    "citywide": true,
+    "direction": 0,
+    "message": "已请求全城避难，居民将通过原生系统前往庇护所。",
+    "frame": 16392585,
+    "types": [
+      {
+        "id": "Earthquake",
+        "name": "地震",
+        "kind": "earthquake",
+        "nativeName": "自定义 · 地震"
+      },
+      {
+        "id": "Meteor",
+        "name": "陨石",
+        "kind": "meteor",
+        "nativeName": "自定义 · 陨石"
+      },
+      {
+        "id": "Sinkhole",
+        "name": "地面塌陷",
+        "kind": "sinkhole",
+        "nativeName": "自定义 · 地面塌陷"
+      },
+      {
+        "id": "Building Fire",
+        "name": "建筑火灾",
+        "kind": "building",
+        "nativeName": "Building Fire"
+      },
+      {
+        "id": "Forest Fire",
+        "name": "森林火灾",
+        "kind": "forest",
+        "nativeName": "Forest Fire"
+      },
+      {
+        "id": "Hail Storm",
+        "name": "冰雹",
+        "kind": "weather",
+        "nativeName": "Hail Storm"
+      },
+      {
+        "id": "Tornado",
+        "name": "龙卷风",
+        "kind": "weather",
+        "nativeName": "Tornado"
+      },
+      {
+        "id": "Tsunami",
+        "name": "海啸",
+        "kind": "tsunami",
+        "nativeName": "Tsunami"
+      },
+      {
+        "id": "Flood",
+        "name": "洪水",
+        "kind": "flood",
+        "nativeName": "Flood"
+      },
+      {
+        "id": "Lightning Strike",
+        "name": "雷击",
+        "kind": "weather",
+        "nativeName": "Lightning Strike"
+      }
+    ],
+    "target": null,
+    "canSpawn": false,
+    "pending": false,
+    "active": [
+      {
+        "id": 56086,
+        "version": 7,
+        "name": "全城避难",
+        "variant": "DisasterControlPanel.Evacuation.L5",
+        "seconds": 1798.0,
+        "weather": null,
+        "custom": {
+          "kind": 4,
+          "phase": 0,
+          "warningSeconds": 0.0,
+          "damaged": 0,
+          "destroyed": 0,
+          "warned": 1430,
+          "terrainApplied": 0,
+          "radius": 0.0,
+          "depth": 0.0
+        }
+      }
+    ]
+  }
+}

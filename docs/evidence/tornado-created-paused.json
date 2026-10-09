@@ -1,0 +1,54 @@
+{
+  "inGame": true,
+  "open": true,
+  "picking": false,
+  "selected": "Tornado",
+  "level": 8,
+  "seconds": 120,
+  "message": "已触发“龙卷风”，强度 8。",
+  "frame": 4857210,
+  "types": [
+    {
+      "id": "Building Fire",
+      "name": "建筑火灾",
+      "kind": "building",
+      "nativeName": "Building Fire"
+    },
+    {
+      "id": "Forest Fire",
+      "name": "森林火灾",
+      "kind": "forest",
+      "nativeName": "Forest Fire"
+    },
+    {
+      "id": "Hail Storm",
+      "name": "冰雹",
+      "kind": "weather",
+      "nativeName": "Hail Storm"
+    },
+    {
+      "id": "Tornado",
+      "name": "龙卷风",
+      "kind": "weather",
+      "nativeName": "Tornado"
+    }
+  ],
+  "target": null,
+  "canSpawn": false,
+  "pending": false,
+  "active": [
+    {
+      "id": 58348,
+      "version": 7,
+      "name": "龙卷风",
+      "variant": "DisasterControlPanel.Tornado.L8",
+      "seconds": 121.0,
+      "weather": {
+        "x": 850.0,
+        "y": 133.0,
+        "z": 650.0,
+        "radius": 284.60498
+      }
+    }
+  ]
+}

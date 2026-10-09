@@ -1,0 +1,220 @@
+<!doctype html><meta charset="utf-8"><title>灾难面板交互验证</title>
+<style>body{margin:0;background:#668077;color:white;font-family:sans-serif}aside{padding:32px}small{display:block;margin-top:8px}</style>
+<aside>灾难控制面板 · 浏览器交互预览<small>本页使用模拟数据，游戏内实机验收另行记录。</small><button id="mock-map" onclick="simulateMapClick()">地图区域（模拟）</button></aside>
+<script>window.calls=[];window.mapRequests=[];window.failTarget=false;window.state={"inGame": true, "open": true, "picking": false, "selected": "Tornado", "level": 5, "seconds": 60, "warning": 30, "citywide": false, "direction": 0, "target": null, "canSpawn": false, "active": [], "message": "选择灾难后，点击地图即可触发。", "pending": false, "types": [{"id": "Building Fire", "name": "建筑火灾", "kind": "building", "nativeName": "Building Fire"}, {"id": "Forest Fire", "name": "森林火灾", "kind": "forest", "nativeName": "Forest Fire"}, {"id": "Tornado", "name": "龙卷风", "kind": "weather", "nativeName": "Tornado"}, {"id": "Earthquake", "name": "地震", "kind": "earthquake", "nativeName": "自定义 · 地震"}, {"id": "Meteor", "name": "陨石", "kind": "meteor", "nativeName": "自定义 · 陨石"}, {"id": "Sinkhole", "name": "地面塌陷", "kind": "sinkhole", "nativeName": "自定义 · 地面塌陷"}, {"id": "Lightning Strike", "name": "雷击", "kind": "weather", "nativeName": "Lightning Strike"}, {"id": "Flood", "name": "洪水", "kind": "flood", "nativeName": "Flood"}, {"id": "Tsunami", "name": "海啸", "kind": "tsunami", "nativeName": "Tsunami"}, {"id": "Hailstorm", "name": "冰雹", "kind": "weather", "nativeName": "Hailstorm"}]};
+window.simulateMapClick=function(){
+if(!state.picking||state.pending)return;
+if(failTarget){state.message='请选择有效位置。';__dcp.update(state);return;}
+mapRequests.push({type:state.selected,level:state.level,seconds:state.seconds,warning:state.warning,direction:state.direction,citywide:state.citywide});
+state.picking=false;state.pending=true;state.target=null;state.canSpawn=false;state.message='正在初始化…';__dcp.update(state);};
+window.completeSpawn=function(){state.pending=false;state.active.push({name:'龙卷风',seconds:state.seconds});state.message='已触发龙卷风。';__dcp.update(state);};
+window['cs2/api']={trigger:function(group,name,value){calls.push({name:name,value:value});
+if(name==='toggle'){state.open=!state.open;if(!state.open)state.picking=false;}
+if(name==='select'&&!state.pending){state.selected=value;state.target=null;state.canSpawn=false;state.picking=true;state.message='';}
+if(name==='level')state.level=value;
+if(name==='seconds')state.seconds=value;
+if(name==='warning')state.warning=value;
+if(name==='direction')state.direction=value;
+if(name==='citywide')state.citywide=value;
+if(name==='pick'&&!state.pending){state.picking=true;state.message='';}
+if(name==='cancel')state.picking=false;
+if(name==='spawn'){state.target=null;state.canSpawn=false;state.active=[{name:'龙卷风',seconds:60}];}
+if(name==='stop')state.active=[];
+if(window.__dcp)window.__dcp.update(state); }};window.__dcpCss="#dcp-root { position: fixed; right: 24px; bottom: 116px; z-index: 1000; font-family: \"Noto Sans SC\", sans-serif; font-size: 15px; color: #eef5f8; }\n#dcp-root * { box-sizing: border-box; }\n#dcp-root button { font-family: \"Noto Sans SC\", sans-serif; font-size: 15px; }\n#dcp-root button { border: 0; color: #eef5f8; cursor: pointer; }\n#dcp-root .dcp-disabled { opacity: .45; cursor: default; }\n#dcp-root button:focus, #dcp-root select:focus, #dcp-root input:focus { box-shadow: 0 0 0 2px #8edafb; }\n#dcp-root button:hover { filter: brightness(1.16); }\n#dcp-root .dcp-launcher { display: flex; align-items: center; padding: 10px 16px; background: #29485c; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,.35); }\n#dcp-root .dcp-launcher svg { width: 24px; height: 24px; margin-right: 7px; }\n#dcp-root .dcp-panel { position: absolute; bottom: 58px; right: 0; width: 422px; max-width: 86vw; max-height: 76vh; overflow-y: auto; background: #203747; border-radius: 8px; box-shadow: 0 7px 28px rgba(0,0,0,.5); border: 1px solid #527082; }\n#dcp-root .dcp-head { display: flex; align-items: center; justify-content: space-between; padding: 13px 17px; background: #29485c; }\n#dcp-root h2 { font-size: 19px; font-weight: 600; margin: 0; }\n#dcp-root .dcp-close { background: transparent; font-size: 26px; width: 30px; height: 30px; line-height: 26px; }\n#dcp-root .dcp-body { padding: 17px; }\n#dcp-root .dcp-choices { display: flex; flex-wrap: wrap; margin: -4px; }\n#dcp-root .dcp-choice { display: flex; align-items: center; width: 47%; margin: 4px; padding: 8px; background: #314d5e; border: 1px solid transparent; border-radius: 5px; text-align: left; }\n#dcp-root .dcp-choice svg { width: 24px; height: 24px; margin-right: 9px; flex-shrink: 0; }\n#dcp-root .dcp-selected { background: #285f78; border: 1px solid #5bbde1; }\n#dcp-root p { margin: 0; }\n#dcp-root .dcp-description { color: #adbfcb; font-size: 13px; line-height: 1.5; margin: 12px 0 18px; }\n#dcp-root .dcp-control-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }\n#dcp-root .dcp-control-label strong { font-weight: 600; }\n#dcp-root .dcp-control { padding: 14px 0; border-top: 1px solid #476071; }\n#dcp-root .dcp-levels { display: flex; }\n#dcp-root .dcp-level { flex: 1; padding: 8px 0; margin: 0 2px; background: #314d5e; border: 1px solid #527082; border-radius: 3px; }\n#dcp-root .dcp-range-ends { display: flex; justify-content: space-between; color: #adbfcb; font-size: 12px; margin-top: 8px; }\n#dcp-root .dcp-duration { margin: 4px 0 15px; }\n#dcp-root .dcp-times { display: flex; margin-top: 9px; }\n#dcp-root .dcp-time { flex: 1; margin: 0 2px; padding: 7px 0; background: #314d5e; border: 1px solid #527082; border-radius: 3px; }\n#dcp-root .dcp-level.dcp-selected, #dcp-root .dcp-time.dcp-selected { background: #285f78; border-color: #5bbde1; }\n#dcp-root .dcp-secondary { padding: 9px 14px; background: #38647e; border-radius: 4px; }\n#dcp-root .dcp-message { font-size: 13px; color: #c6d9e5; line-height: 1.5; margin: 6px 0 10px; }\n#dcp-root .dcp-spawn { width: 100%; padding: 12px; background: #ed874f; color: #201810; border-radius: 4px; font-weight: 600; }\n#dcp-root .dcp-footnote { color: #adbfcb; font-size: 12px; line-height: 1.4; margin: 8px 0; }\n#dcp-root .dcp-ongoing { margin-top: 17px; padding-top: 15px; border-top: 1px solid #476071; }\n#dcp-root .dcp-stop { padding: 6px 10px; background: #314d5e; border: 1px solid #718999; border-radius: 4px; font-size: 12px; }\n#dcp-root .dcp-active { max-height: 100px; overflow-y: auto; }\n#dcp-root .dcp-event { display: flex; justify-content: space-between; margin: 7px 0; font-size: 13px; }\n#dcp-root .dcp-event span:last-child { color: #adbfcb; }\n#dcp-root .dcp-empty { font-size: 13px; color: #adbfcb; }\n#dcp-root .dcp-trigger { margin-bottom: 16px; }\n#dcp-root .dcp-picking { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #285f78; border: 1px solid #5bbde1; border-radius: 5px; }\n#dcp-root .dcp-picking > div { flex: 1; margin-right: 10px; }\n#dcp-root .dcp-picking p { font-size: 12px; color: #c6d9e5; line-height: 1.5; margin-top: 6px; }\n#dcp-root .dcp-evacuation { margin: 13px 0 0; padding-top: 8px; border-top: 1px solid #476071; }\n#dcp-root .dcp-evacuation button { flex: 1; margin: 0 3px; font-size: 13px; }\n@media (max-height: 760px) { #dcp-root { bottom: 90px; } #dcp-root .dcp-panel { max-height: 72vh; } #dcp-root .dcp-choice { padding: 8px; } }\n";</script><script>(function () {
+  'use strict';
+  if (!document.body) return;
+  function trigger(name, value) {
+    var api = window['cs2/api'];
+    if (api) {
+      if (value === undefined) api.trigger('dcp', name);
+      else api.trigger('dcp', name, value);
+    }
+  }
+  if (window.__dcp) { trigger('ready'); return; }
+  var css = document.createElement('style');
+  css.id = 'dcp-styles'; css.textContent = window.__dcpCss || '';
+  document.head.appendChild(css);
+  var root = document.createElement('div');
+  root.id = 'dcp-root'; root.style.display = 'none';
+  document.body.appendChild(root);
+  var s = {}, signature = '', buttons = [];
+  function element(tag, cls, text, parent) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function button(cls, text, parent, callback) {
+    var b = element('button', cls, text, parent);
+    b.type = 'button'; b.addEventListener('click', function (e) { if (!b.disabled) callback(e); });
+    return b;
+  }
+  function disabled(b, value) {
+    b.disabled = value;
+    b.classList.toggle('dcp-disabled', value);
+    b.setAttribute('aria-disabled', value ? 'true' : 'false');
+  }
+  function icon(kind) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 32 32'); svg.setAttribute('aria-hidden', 'true');
+    var path = document.createElementNS(ns, 'path');
+    var paths = {
+      building: 'M8 28V14h7v14M18 28V6h7v22M11 17v2m0 3v2m10-14v3m0 4v3M4 28h24M7 9c0-5 7-7 6-2 6 2 3 7 0 7',
+      forest: 'M8 28V18m-6 0 6-9 6 9H2m16 10V16m-6 0 6-11 6 11H12m13 11c-5-4 2-6 0-12 6 4 5 10 0 12',
+      tornado: 'M4 5h24M6 9h20M8 13h16M11 17h12M15 21h7M18 25h4M21 29h3',
+      hail: 'M6 17a6 6 0 0 1 0-12 7 7 0 0 1 13 0 5 5 0 0 1 6 9H6m1 7v2m7-5v2m7 0v2m-11 2v2m8-1v2',
+      thunder: 'M6 15a5 5 0 0 1 0-10 7 7 0 0 1 13 0 5 5 0 0 1 6 9H6m10-3-5 9h6l-3 9 10-13h-7l3-5',
+      earthquake: 'M3 9h26M3 24h8l5-8-5-5 7-8m-2 13 5 5-2 7m-7-4H3m20 0h6',
+      meteor: 'M4 4l9 9M12 3l8 8M3 12l8 8M20 14a7 7 0 1 1-7 7 7 7 0 0 1 7-7m-1 5 3 3',
+      sinkhole: 'M3 13l6 6 7 4 7-4 6-6M3 13l5-4 8 3 8-3 5 4m-20 6 2 7h10l2-7',
+      flood: 'M3 15l8-7 8 7v9H5v-9m2 0v-5m-4 16c5-5 8 5 13 0s8 5 13 0',
+      tsunami: 'M3 24c6 0 1-9 7-15 8-9 19-3 13 3-5-6-9 0-5 6 2 4 6 5 11 6M3 29h26'
+    };
+    path.setAttribute('d', paths[kind] || paths.hail);
+    path.setAttribute('fill', 'none'); path.setAttribute('stroke', 'currentColor');
+    path.setAttribute('stroke-width', '2'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(path); return svg;
+  }
+  var launcher = button('dcp-launcher', '灾难', root, function () { trigger('toggle'); });
+  launcher.title = '灾难控制面板（F9）';
+  launcher.insertBefore(icon('tornado'), launcher.firstChild);
+  var panel = element('section', 'dcp-panel', undefined, root);
+  panel.setAttribute('aria-label', '灾难控制面板');
+  var head = element('div', 'dcp-head', undefined, panel);
+  element('h2', '', '灾难控制面板', head);
+  var close = button('dcp-close', '×', head, function () { trigger('toggle'); });
+  close.setAttribute('aria-label', '关闭面板');
+  var body = element('div', 'dcp-body', undefined, panel);
+  var choices = element('div', 'dcp-choices', undefined, body);
+  var description = element('p', 'dcp-description', '选择灾难类型。', body);
+  var strength = element('div', 'dcp-control', undefined, body);
+  var strengthLabel = element('div', 'dcp-control-label', undefined, strength);
+  element('label', '', '灾难强度', strengthLabel);
+  var levelValue = element('strong', '', '5 / 10', strengthLabel);
+  var levels = element('div', 'dcp-levels', undefined, strength);
+  levels.setAttribute('role', 'group'); levels.setAttribute('aria-label', '灾难强度');
+  var levelButtons = [];
+  for (var n = 1; n <= 10; n++) (function (value) {
+    var b = button('dcp-level', String(value), levels, function () { trigger('level', value); });
+    b.setAttribute('data-level', String(value)); levelButtons.push(b);
+  }(n));
+  var ends = element('div', 'dcp-range-ends', undefined, strength);
+  element('span', '', '轻微', ends); element('span', '', '5 级 = 基准', ends); element('span', '', '强烈', ends);
+  var duration = element('div', 'dcp-duration', undefined, body);
+  var durationLabel = element('label', '', '持续时间（模拟秒）', duration);
+  var seconds = element('div', 'dcp-times', undefined, duration), timeButtons = [];
+  [15, 30, 60, 90, 120, 180].forEach(function (value) {
+    var b = button('dcp-time', String(value), seconds, function () { trigger('seconds', value); });
+    b.setAttribute('data-seconds', String(value)); timeButtons.push(b);
+  });
+  var warningBox = element('div', 'dcp-warning dcp-duration', undefined, body);
+  element('label', '', '预警时间（模拟秒）', warningBox);
+  var warningRow = element('div', 'dcp-times', undefined, warningBox), warningButtons = [];
+  [0, 15, 30, 60, 120].forEach(function (v) { var b = button('dcp-time', String(v), warningRow, function () { trigger('warning', v); }); b.setAttribute('data-warning', String(v)); warningButtons.push(b); });
+  var scopeBox = element('div', 'dcp-scope dcp-duration', undefined, body);
+  element('label', '', '警报范围（居民由游戏原生机制处理）', scopeBox);
+  var scopeRow = element('div', 'dcp-times', undefined, scopeBox);
+  var regional = button('dcp-time', '受灾范围', scopeRow, function () { trigger('citywide', false); });
+  var citywide = button('dcp-time', '全城避难', scopeRow, function () { trigger('citywide', true); });
+  element('p', 'dcp-description', '默认按受灾范围发出警报；庇护所选择、出行和疏散车辆由游戏处理。冰雹、雷击沿用原生留在室内规则。', scopeBox);
+  var triggerBox = element('div', 'dcp-trigger', undefined, body);
+  body.insertBefore(triggerBox, choices);
+  var picking = element('div', 'dcp-picking', undefined, triggerBox);
+  var pickHint = element('div', '', undefined, picking);
+  var pickTitle = element('strong', '', '左键点击地图，立即触发', pickHint);
+  element('p', '', '右键或 Esc 取消；参数可在下方调整。', pickHint);
+  var cancel = button('dcp-secondary', '取消', picking, function () { trigger('cancel'); });
+  cancel.setAttribute('aria-label', '取消地图触发');
+  var spawn = button('dcp-spawn', '在地图上触发', triggerBox, function () {
+    if (!spawn.disabled) { disabled(spawn, true); trigger('pick'); }
+  });
+  var message = element('p', 'dcp-message', '', triggerBox); message.setAttribute('role', 'status');
+  element('p', 'dcp-footnote', '灾害会真实损伤城市，建议先另存。', body);
+  var evacuation = element('div', 'dcp-evacuation', undefined, body);
+  var alertRow = element('div', 'dcp-times', undefined, evacuation);
+  button('dcp-secondary dcp-evacuate', '发布全城避难', alertRow, function () { trigger('evacuate'); });
+  button('dcp-secondary dcp-release', '解除全城警报', alertRow, function () { trigger('release'); });
+  element('p', 'dcp-footnote', '避难沿用原版容量、道路与巴士规则。收容人数可在原版灾害信息页查看。', evacuation);
+  var ongoing = element('div', 'dcp-ongoing', undefined, body);
+  var ongoingHead = element('div', 'dcp-control-label', undefined, ongoing);
+  var count = element('strong', '', '本面板触发的灾害', ongoingHead);
+  var stop = button('dcp-stop', '停止灾害', ongoingHead, function () { disabled(stop, true); trigger('stop'); });
+  var active = element('div', 'dcp-active', undefined, ongoing);
+  element('p', 'dcp-footnote', '停止不会修复已造成的破坏。', ongoing);
+  root.addEventListener('mouseenter', function () { trigger('pointer', true); });
+  root.addEventListener('mouseleave', function () { trigger('pointer', false); });
+  function key(e) {
+    if (e.key === 'Escape' && s.open) { trigger(s.picking ? 'cancel' : 'toggle'); e.stopPropagation(); }
+  }
+  document.addEventListener('keydown', key);
+  function update(state) {
+    s = state;
+    root.style.display = s.inGame ? 'block' : 'none';
+    panel.style.display = s.open ? 'block' : 'none';
+    launcher.setAttribute('aria-expanded', s.open ? 'true' : 'false');
+    launcher.className = 'dcp-launcher' + (s.open ? ' dcp-selected' : '');
+    if (!s.open) return;
+    picking.style.display = s.picking ? 'flex' : 'none';
+    spawn.style.display = s.picking ? 'none' : 'block';
+    var types = s.types || [];
+    var nextSignature = JSON.stringify(types);
+    if (nextSignature !== signature) {
+      signature = nextSignature; choices.textContent = ''; buttons = [];
+      types.forEach(function (t) {
+        var b = button('dcp-choice', '', choices, function () { trigger('select', t.id); });
+        var n = t.nativeName.toLowerCase();
+        b.appendChild(icon(t.kind === 'weather' ? (n.indexOf('tornado') >= 0 ? 'tornado' : n.indexOf('lightning') >= 0 || n.indexOf('thunder') >= 0 ? 'thunder' : 'hail') : t.kind));
+        element('span', '', t.name, b); b.setAttribute('title', t.nativeName); buttons.push({ id: t.id, button: b });
+      });
+      if (!types.length) element('p', 'dcp-message', '正在读取可用灾难…', choices);
+    }
+    buttons.forEach(function (b) {
+      var selected = b.id === s.selected;
+      b.button.className = 'dcp-choice' + (selected ? ' dcp-selected' : '');
+      b.button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    var type = types.filter(function (t) { return t.id === s.selected; })[0];
+    pickTitle.textContent = type ? '点击地图触发“' + type.name + '”' : '左键点击地图，立即触发';
+    spawn.textContent = s.pending ? '正在初始化…' : '在地图上触发';
+    var descriptions = { building: '点燃指定建筑，由原生消防系统处理。', forest: '点燃指定野生树木，火势可向周边蔓延。', weather: '在选定位置形成原生天气事件，随后受风向影响移动。', earthquake: '三轮震动、地表裂纹与沿地面扩散的扬尘；强震可造成建筑倒塌。', meteor: '陨石拖着尾焰坠落，撞击后闪光、碎片和烟尘扩散，并留下真实地形坑。', sinkhole: '预警后地形下陷，坑内建筑倒塌。停止不会填平坑洞。', flood: '点想淹的位置，附近水域沿相连水面逐渐上涨。高等级扩大涨水范围，漫岸与高地阻挡由地形决定。', tsunami: '点想冲击的位置，自动从附近海面向岸边推来主浪和尾浪。高等级形成宽阔大浪，高地仍可幸免。' };
+    description.textContent = type ? descriptions[type.kind] || type.name : '选择一种灾难，再在地图上指定发生位置。';
+    levelValue.textContent = s.level + ' / 10';
+    levelButtons.forEach(function (b, i) { b.className = 'dcp-level' + (i + 1 === s.level ? ' dcp-selected' : ''); b.setAttribute('aria-pressed', i + 1 === s.level ? 'true' : 'false'); });
+    var timed = type && type.kind !== 'building' && type.kind !== 'forest';
+    var custom = type && ['earthquake', 'meteor', 'sinkhole'].indexOf(type.kind) >= 0;
+    var waterDisaster = type && (type.kind === 'flood' || type.kind === 'tsunami');
+    duration.style.display = timed ? 'block' : 'none';
+    durationLabel.textContent = type && type.kind === 'tsunami' ? '造波时间（模拟秒）' : type && type.kind === 'flood' ? '涨水与维持（模拟秒）' : '持续时间（模拟秒）';
+    warningBox.style.display = custom ? 'block' : 'none';
+    scopeBox.style.display = timed && !waterDisaster ? 'block' : 'none';
+    warningButtons.forEach(function (b) { b.className = 'dcp-time' + (Number(b.getAttribute('data-warning')) === s.warning ? ' dcp-selected' : ''); });
+    regional.className = 'dcp-time' + (!s.citywide ? ' dcp-selected' : ''); citywide.className = 'dcp-time' + (s.citywide ? ' dcp-selected' : '');
+    timeButtons.forEach(function (b) { var selected = Number(b.getAttribute('data-seconds')) === s.seconds; b.className = 'dcp-time' + (selected ? ' dcp-selected' : ''); b.setAttribute('aria-pressed', selected ? 'true' : 'false'); });
+    message.textContent = s.message || '';
+    message.style.display = s.message ? 'block' : 'none';
+    disabled(spawn, !type || s.pending);
+    buttons.forEach(function (b) { disabled(b.button, s.pending); });
+    var events = s.active || [];
+    count.textContent = '本面板触发的灾害（' + events.length + '）';
+    disabled(stop, !events.length && !s.pending);
+    active.textContent = '';
+    if (!events.length) element('p', 'dcp-empty', '当前没有进行中的灾害。', active);
+    events.forEach(function (event) {
+      var row = element('div', 'dcp-event', undefined, active);
+      element('span', '', event.name, row);
+      var status = event.custom && event.custom.warningSeconds > 0 ? '预警 ' + event.custom.warningSeconds + ' 秒' : event.custom && event.custom.kind === 11 ? (event.custom.phase === 2 ? '尾波传播中' : '造波 ' + event.custom.waveSeconds + ' 秒') : event.seconds >= 0 ? event.seconds + ' 秒' : '消防处理中';
+      element('span', '', status, row);
+    });
+  }
+  window.__dcp = {
+    update: update,
+    dispose: function () {
+      document.removeEventListener('keydown', key); root.remove(); css.remove(); delete window.__dcp;
+    }
+  };
+  trigger('ready');
+}());
+</script>
+<script>window.__dcp.update(state);</script>

@@ -1,0 +1,43 @@
+{
+  "inGame": true,
+  "open": true,
+  "picking": false,
+  "selected": "Tornado",
+  "level": 5,
+  "seconds": 60,
+  "message": "位置已选定。点击“触发灾难”后开始。",
+  "frame": 4859236,
+  "types": [
+    {
+      "id": "Building Fire",
+      "name": "建筑火灾",
+      "kind": "building",
+      "nativeName": "Building Fire"
+    },
+    {
+      "id": "Forest Fire",
+      "name": "森林火灾",
+      "kind": "forest",
+      "nativeName": "Forest Fire"
+    },
+    {
+      "id": "Hail Storm",
+      "name": "冰雹",
+      "kind": "weather",
+      "nativeName": "Hail Storm"
+    },
+    {
+      "id": "Tornado",
+      "name": "龙卷风",
+      "kind": "weather",
+      "nativeName": "Tornado"
+    }
+  ],
+  "target": {
+    "x": 3108.0,
+    "z": 1681.0,
+    "entity": 0
+  },
+  "canSpawn": true,
+  "active": []
+}

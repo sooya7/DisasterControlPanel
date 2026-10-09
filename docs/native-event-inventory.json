@@ -1,0 +1,4146 @@
+{
+  "game_version": "1.6.2f1",
+  "asset": "E:\\SteamLibrary\\steamapps\\common\\Cities Skylines II\\Cities2_Data\\resources.assets",
+  "unity_version": "2022.3.71f1",
+  "object_count": 193600,
+  "events": [
+    {
+      "path_id": 119945,
+      "name": "Building Collapse",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 159882,
+          "name": "Destruction",
+          "class": "Destruction",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160747,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Fire & Rescue"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119946,
+      "name": "Building Fire",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 32211,
+          "name": "Fire",
+          "class": "Fire",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160748,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Fire & Rescue"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 134216,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119947,
+      "name": "Flood",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 160749,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Natural Disasters"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 181940,
+          "name": "WaterLevelChangeComponent",
+          "class": "WaterLevelChangeComponent",
+          "active": true,
+          "details": {
+            "target_type": 1,
+            "change_type": 2,
+            "escalation_delay": 0.0,
+            "evacuate": false,
+            "stay_indoors": false,
+            "danger_level": 1.0
+          }
+        },
+        {
+          "path_id": 63195,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119948,
+      "name": "Forest Fire",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 183772,
+          "name": "Fire",
+          "class": "Fire",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 126705,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Natural Disasters"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 47397,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 172360,
+          "name": "EventAchievementComponent",
+          "class": "EventAchievementComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119949,
+      "name": "Generic Sickness",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 156474,
+          "name": "HealthEvent",
+          "class": "HealthEvent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160750,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Healthcare"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119950,
+      "name": "Hail Storm",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 57535,
+          "name": "WeatherPhenomenon",
+          "class": "WeatherPhenomenon",
+          "active": true,
+          "details": {
+            "occurrence_probability": 0.10000000149011612
+          }
+        },
+        {
+          "path_id": 24363,
+          "name": "TrafficAccident",
+          "class": "TrafficAccident",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160751,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Natural Disasters"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 156517,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 139743,
+          "name": "EventAchievementComponent",
+          "class": "EventAchievementComponent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 181083,
+          "name": "EffectSource",
+          "class": "EffectSource",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119951,
+      "name": "Lightning Strike",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 43040,
+          "name": "WeatherPhenomenon",
+          "class": "WeatherPhenomenon",
+          "active": true,
+          "details": {
+            "occurrence_probability": 5.0
+          }
+        },
+        {
+          "path_id": 32212,
+          "name": "Fire",
+          "class": "Fire",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160752,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Fire & Rescue"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 134217,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119952,
+      "name": "Lose Control Accident",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 160909,
+          "name": "TrafficAccident",
+          "class": "TrafficAccident",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 57820,
+          "name": "Fire",
+          "class": "Fire",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 47714,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Police & Administration"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 156366,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119953,
+      "name": "Robbery",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 16262,
+          "name": "Crime",
+          "class": "Crime",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160753,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Police & Administration"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119954,
+      "name": "Rocket Launch",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 67299,
+          "name": "SpectatorEvent",
+          "class": "SpectatorEvent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 33440,
+          "name": "VehicleLaunch",
+          "class": "VehicleLaunch",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 56100,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119955,
+      "name": "Severe Injury",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 156475,
+          "name": "HealthEvent",
+          "class": "HealthEvent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160754,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Healthcare"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119956,
+      "name": "Sightseeing",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 11477,
+          "name": "HaveCoordinatedMeeting",
+          "class": "HaveCoordinatedMeeting",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": []
+    },
+    {
+      "path_id": 119957,
+      "name": "Sudden Death",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 156476,
+          "name": "HealthEvent",
+          "class": "HealthEvent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160755,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Healthcare"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119958,
+      "name": "Tornado",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 57536,
+          "name": "WeatherPhenomenon",
+          "class": "WeatherPhenomenon",
+          "active": true,
+          "details": {
+            "occurrence_probability": 0.30000001192092896
+          }
+        },
+        {
+          "path_id": 24364,
+          "name": "TrafficAccident",
+          "class": "TrafficAccident",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 160756,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Natural Disasters"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 36895,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 164535,
+          "name": "EventAchievementComponent",
+          "class": "EventAchievementComponent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 63331,
+          "name": "EffectSource",
+          "class": "EffectSource",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 45495,
+          "name": "EarlyDisasterWarningEvent",
+          "class": "EarlyDisasterWarningEvent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119959,
+      "name": "Traveling",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 11478,
+          "name": "HaveCoordinatedMeeting",
+          "class": "HaveCoordinatedMeeting",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": []
+    },
+    {
+      "path_id": 119960,
+      "name": "Tsunami",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 160757,
+          "name": "Unlockable",
+          "class": "Unlockable",
+          "active": true,
+          "details": {
+            "require_all": [
+              "Natural Disasters"
+            ],
+            "require_any": [],
+            "ignore_dependencies": false
+          }
+        },
+        {
+          "path_id": 181941,
+          "name": "WaterLevelChangeComponent",
+          "class": "WaterLevelChangeComponent",
+          "active": true,
+          "details": {
+            "target_type": 2,
+            "change_type": 1,
+            "escalation_delay": 1.0,
+            "evacuate": true,
+            "stay_indoors": false,
+            "danger_level": 1.0
+          }
+        },
+        {
+          "path_id": 14615,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119961,
+      "name": "Valentines Day",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 176176,
+          "name": "CalendarEvent",
+          "class": "CalendarEvent",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 23296,
+          "name": "HaveCoordinatedMeeting",
+          "class": "HaveCoordinatedMeeting",
+          "active": true,
+          "details": {}
+        },
+        {
+          "path_id": 12792,
+          "name": "JournalEventComponent",
+          "class": "JournalEventComponent",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": [
+        {
+          "path_id": 76578,
+          "name": "EventsCollection",
+          "active": true
+        }
+      ]
+    },
+    {
+      "path_id": 119962,
+      "name": "VisitAttractions",
+      "active": true,
+      "enabled": true,
+      "script": {
+        "name": "EventPrefab",
+        "class": "EventPrefab",
+        "namespace": "Game.Prefabs",
+        "assembly": "Game"
+      },
+      "components": [
+        {
+          "path_id": 11479,
+          "name": "HaveCoordinatedMeeting",
+          "class": "HaveCoordinatedMeeting",
+          "active": true,
+          "details": {}
+        }
+      ],
+      "collections": []
+    }
+  ],
+  "asset_collections": [
+    {
+      "path_id": 76294,
+      "name": "AnniversaryBuildingsAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76295,
+      "name": "AreasCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76296,
+      "name": "AssetDatabasePrefabsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76297,
+      "name": "BikesChirpCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76298,
+      "name": "Bikes_Bridges",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76299,
+      "name": "Bikes_Paths",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76300,
+      "name": "Bikes_Props",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76301,
+      "name": "Bikes_Services",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76302,
+      "name": "Bikes_Vehicles",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76303,
+      "name": "BowmanBanking",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76304,
+      "name": "BridgesAndPortsBrands",
+      "active": true,
+      "child_collections": [
+        [
+          0,
+          76303
+        ],
+        [
+          0,
+          76305
+        ],
+        [
+          0,
+          76306
+        ],
+        [
+          0,
+          76307
+        ],
+        [
+          0,
+          76308
+        ],
+        [
+          0,
+          76309
+        ],
+        [
+          0,
+          76310
+        ],
+        [
+          0,
+          76311
+        ],
+        [
+          0,
+          76312
+        ]
+      ]
+    },
+    {
+      "path_id": 76305,
+      "name": "CalamariTangle",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76306,
+      "name": "CrocodilesHook",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76307,
+      "name": "FishOnAStick",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76308,
+      "name": "FranksFishsticks",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76309,
+      "name": "InstaLOD",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76310,
+      "name": "LifebeltPetroleum",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76311,
+      "name": "StArmandsGoblet",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76312,
+      "name": "TurttleShell",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76313,
+      "name": "Brand_269_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76314,
+      "name": "Brand_ADDAD_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76315,
+      "name": "Brand_Aivatsu_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76316,
+      "name": "Brand_AlkenesCracking_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76317,
+      "name": "Brand_AllmostMeat_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76318,
+      "name": "Brand_AnnusInteriorDesign_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76319,
+      "name": "Brand_AshtrainRecords_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76320,
+      "name": "Brand_BanhammerBank_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76321,
+      "name": "Brand_Barbarshop_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76322,
+      "name": "Brand_BarkMillTannery_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76323,
+      "name": "Brand_BedbugHostel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76324,
+      "name": "Brand_BellAndCog_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76325,
+      "name": "Brand_BendyLetters_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76326,
+      "name": "Brand_Bentzel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76327,
+      "name": "Brand_Bevpop_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76328,
+      "name": "Brand_BigFeetInc_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76329,
+      "name": "Brand_BootAndBug_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76330,
+      "name": "Brand_BragAndRoost_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76331,
+      "name": "Brand_BuccalMucosa_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76332,
+      "name": "Brand_Bumberfuel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76333,
+      "name": "Brand_BurlyAndBrawny_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76334,
+      "name": "Brand_BurnedBean_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76335,
+      "name": "Brand_CRIMoore_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76336,
+      "name": "Brand_CardioPatio_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76337,
+      "name": "Brand_Carpoco_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76338,
+      "name": "Brand_CatInACabin_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76339,
+      "name": "Brand_Cebeliverse_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76340,
+      "name": "Brand_ChachiThreads_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76341,
+      "name": "Brand_CheapAndRandom_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76342,
+      "name": "Brand_Chemicalore_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76343,
+      "name": "Brand_ChemtrailChemicals_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76344,
+      "name": "Brand_Chipperstein_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76345,
+      "name": "Brand_ChirperToys_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76346,
+      "name": "Brand_ChirpyTeck_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76347,
+      "name": "Brand_CitiesCarCustoms_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76348,
+      "name": "Brand_ColossalOre_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76349,
+      "name": "Brand_CommonGroceries_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76350,
+      "name": "Brand_ConsilioBombacio_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76351,
+      "name": "Brand_ConsumerApparel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76352,
+      "name": "Brand_CottonOrder_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76353,
+      "name": "Brand_CrapfishGranules_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76354,
+      "name": "Brand_CrazyColibri_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76355,
+      "name": "Brand_Cryersters_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76356,
+      "name": "Brand_DLCHut_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76357,
+      "name": "Brand_DamienBite_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76358,
+      "name": "Brand_DamskusDiner_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76359,
+      "name": "Brand_DennyAlsLaw_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76360,
+      "name": "Brand_DennyDenims_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76361,
+      "name": "Brand_DiningFine_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76362,
+      "name": "Brand_Dobbelbock_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76363,
+      "name": "Brand_DromeCinema_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76364,
+      "name": "Brand_DryLaundry_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76365,
+      "name": "Brand_Drydemans_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76366,
+      "name": "Brand_Duckytoi_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76367,
+      "name": "Brand_Eino_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76368,
+      "name": "Brand_FabioAArtGallery_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76369,
+      "name": "Brand_Fabricios_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76370,
+      "name": "Brand_FattyBite_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76371,
+      "name": "Brand_FaultStudios_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76372,
+      "name": "Brand_FetchAMovie_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76373,
+      "name": "Brand_FilmFileRental_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76374,
+      "name": "Brand_FixedTraffic_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76375,
+      "name": "Brand_FlowersFlours_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76376,
+      "name": "Brand_FreshPots_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76377,
+      "name": "Brand_Fries_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76378,
+      "name": "Brand_FullOfFoods_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76379,
+      "name": "Brand_FullSkillGrinding_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76380,
+      "name": "Brand_GoNutsDoughnuts_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76381,
+      "name": "Brand_GrandMargay_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76382,
+      "name": "Brand_GreedAndGrief_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76383,
+      "name": "Brand_GreenoughBiofuel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76384,
+      "name": "Brand_GrindARock_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76385,
+      "name": "Brand_GrunKuh_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76386,
+      "name": "Brand_HalfAGrain_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76387,
+      "name": "Brand_HandAHammer_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76388,
+      "name": "Brand_HardcopyBookstore_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76389,
+      "name": "Brand_IBeamSteel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76390,
+      "name": "Brand_IMutci_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76391,
+      "name": "Brand_IndieLizard_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76392,
+      "name": "Brand_InfinityInks_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76393,
+      "name": "Brand_InterIoreDesigns_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76394,
+      "name": "Brand_Kaagistan_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76395,
+      "name": "Brand_Kapea_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76396,
+      "name": "Brand_Kapine_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76397,
+      "name": "Brand_KinoView_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76398,
+      "name": "Brand_KivivskiyJewelry_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76399,
+      "name": "Brand_LFClothing_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76400,
+      "name": "Brand_LaurisLentils_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76401,
+      "name": "Brand_LeafyGreens_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76402,
+      "name": "Brand_LehtoElectronics_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76403,
+      "name": "Brand_Limzabar_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76404,
+      "name": "Brand_LittleBoxes_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76405,
+      "name": "Brand_LodgesTravels_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76406,
+      "name": "Brand_Lopo_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76407,
+      "name": "Brand_LuiboDigital_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76408,
+      "name": "Brand_Maito_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76409,
+      "name": "Brand_MariinaM_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76410,
+      "name": "Brand_MasonJar_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76411,
+      "name": "Brand_Matheos_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76412,
+      "name": "Brand_MattockAndWinch_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76413,
+      "name": "Brand_MeatyBits_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76414,
+      "name": "Brand_Merinus_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76415,
+      "name": "Brand_MorellosCookieDough_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76416,
+      "name": "Brand_Motens_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76417,
+      "name": "Brand_MouthwaterPress_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76418,
+      "name": "Brand_NeckbeardMikesComics_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76419,
+      "name": "Brand_NomSobaNoodle_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76420,
+      "name": "Brand_NonsenseVintage_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76421,
+      "name": "Brand_NorthNotesPaper_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76422,
+      "name": "Brand_OHFurniture_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76423,
+      "name": "Brand_Obuwniczy_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76424,
+      "name": "Brand_OceanportPharmaceuticals_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76425,
+      "name": "Brand_OilAndGearGarage_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76426,
+      "name": "Brand_Oiliwood_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76427,
+      "name": "Brand_OldAndVinyl_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76428,
+      "name": "Brand_Onshore_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76429,
+      "name": "Brand_Ordinateur_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76430,
+      "name": "Brand_OutlineRealEstate_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76431,
+      "name": "Brand_OutskirtsTannery_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76432,
+      "name": "Brand_PNGMedia_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76433,
+      "name": "Brand_PPMchem_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76434,
+      "name": "Brand_PatbackMedical_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76435,
+      "name": "Brand_PeacentPlanks_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76436,
+      "name": "Brand_PelicanBiofuel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76437,
+      "name": "Brand_PellemyChemicals_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76438,
+      "name": "Brand_PernuApparel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76439,
+      "name": "Brand_PetrolPonyGarage_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76440,
+      "name": "Brand_Pharmacy_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76441,
+      "name": "Brand_PhrasestackBooks_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76442,
+      "name": "Brand_Pihi_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76443,
+      "name": "Brand_Pilestack_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76444,
+      "name": "Brand_Pilotee_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76445,
+      "name": "Brand_PinkAndSparkly_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76446,
+      "name": "Brand_Placesstages_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76447,
+      "name": "Brand_Plasticold_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76448,
+      "name": "Brand_PrimevalPetrol_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76449,
+      "name": "Brand_Pteropus_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76450,
+      "name": "Brand_RawrunBikes_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76451,
+      "name": "Brand_RoadGarbage_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76452,
+      "name": "Brand_RustBucket_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76453,
+      "name": "Brand_SaveMoney_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76454,
+      "name": "Brand_SawEd_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76455,
+      "name": "Brand_ScandicBaron_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76456,
+      "name": "Brand_Shinies_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76457,
+      "name": "Brand_ShopLate_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76458,
+      "name": "Brand_ShortMarket_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76459,
+      "name": "Brand_SilentSaulsRealEstate_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76460,
+      "name": "Brand_SingTapeRecords_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76461,
+      "name": "Brand_SirCutAlot_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76462,
+      "name": "Brand_SixtySum_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76463,
+      "name": "Brand_SleePeas_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76464,
+      "name": "Brand_SmeltNBlast_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76465,
+      "name": "Brand_Smeltingmore_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76466,
+      "name": "Brand_SnafuInsurance_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76467,
+      "name": "Brand_SneakyRidge_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76468,
+      "name": "Brand_SoftEnds_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76469,
+      "name": "Brand_SomethingAndAll_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76470,
+      "name": "Brand_Spasm_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76471,
+      "name": "Brand_SpdS_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76472,
+      "name": "Brand_Speltware_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76473,
+      "name": "Brand_SpendelzRides_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76474,
+      "name": "Brand_SpinOffBakeries_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76475,
+      "name": "Brand_SpinningSpool_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76476,
+      "name": "Brand_SquarePackages_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76477,
+      "name": "Brand_StChirpsMortuary_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76478,
+      "name": "Brand_StadelmannAndBardolf_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76479,
+      "name": "Brand_SteelSaurus_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76480,
+      "name": "Brand_StefansStump_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76481,
+      "name": "Brand_StrongarmMixing_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76482,
+      "name": "Brand_SugarSpike_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76483,
+      "name": "Brand_SunAsana_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76484,
+      "name": "Brand_Szoftver_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76485,
+      "name": "Brand_THELawAndAccounting_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76486,
+      "name": "Brand_TattooStudio_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76487,
+      "name": "Brand_TeakStoolCo_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76488,
+      "name": "Brand_TechOMat_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76489,
+      "name": "Brand_TekkVinyl_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76490,
+      "name": "Brand_Texstailors_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76491,
+      "name": "Brand_ThickDigital_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76492,
+      "name": "Brand_Thoseshows_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76493,
+      "name": "Brand_TinyToys_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76494,
+      "name": "Brand_TreasureTroveComics_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76495,
+      "name": "Brand_Trikoosana_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76496,
+      "name": "Brand_VelvetDuds_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76497,
+      "name": "Brand_Waffords_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76498,
+      "name": "Brand_Wingbacks_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76499,
+      "name": "Brand_Wolmsburys_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76500,
+      "name": "Brand_WovenWool_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76501,
+      "name": "Brand_Wrebomm_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76502,
+      "name": "Brand_Wroommel_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76503,
+      "name": "Brand_Yaxu_AssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76504,
+      "name": "BrandsCollection",
+      "active": true,
+      "child_collections": [
+        [
+          0,
+          76313
+        ],
+        [
+          0,
+          76314
+        ],
+        [
+          0,
+          76315
+        ],
+        [
+          0,
+          76316
+        ],
+        [
+          0,
+          76317
+        ],
+        [
+          0,
+          76318
+        ],
+        [
+          0,
+          76319
+        ],
+        [
+          0,
+          76320
+        ],
+        [
+          0,
+          76321
+        ],
+        [
+          0,
+          76322
+        ],
+        [
+          0,
+          76323
+        ],
+        [
+          0,
+          76324
+        ],
+        [
+          0,
+          76325
+        ],
+        [
+          0,
+          76326
+        ],
+        [
+          0,
+          76327
+        ],
+        [
+          0,
+          76328
+        ],
+        [
+          0,
+          76329
+        ],
+        [
+          0,
+          76330
+        ],
+        [
+          0,
+          76331
+        ],
+        [
+          0,
+          76332
+        ],
+        [
+          0,
+          76333
+        ],
+        [
+          0,
+          76334
+        ],
+        [
+          0,
+          76336
+        ],
+        [
+          0,
+          76337
+        ],
+        [
+          0,
+          76338
+        ],
+        [
+          0,
+          76339
+        ],
+        [
+          0,
+          76340
+        ],
+        [
+          0,
+          76341
+        ],
+        [
+          0,
+          76342
+        ],
+        [
+          0,
+          76343
+        ],
+        [
+          0,
+          76344
+        ],
+        [
+          0,
+          76345
+        ],
+        [
+          0,
+          76346
+        ],
+        [
+          0,
+          76347
+        ],
+        [
+          0,
+          76348
+        ],
+        [
+          0,
+          76349
+        ],
+        [
+          0,
+          76350
+        ],
+        [
+          0,
+          76351
+        ],
+        [
+          0,
+          76352
+        ],
+        [
+          0,
+          76353
+        ],
+        [
+          0,
+          76354
+        ],
+        [
+          0,
+          76335
+        ],
+        [
+          0,
+          76355
+        ],
+        [
+          0,
+          76357
+        ],
+        [
+          0,
+          76358
+        ],
+        [
+          0,
+          76359
+        ],
+        [
+          0,
+          76360
+        ],
+        [
+          0,
+          76361
+        ],
+        [
+          0,
+          76356
+        ],
+        [
+          0,
+          76362
+        ],
+        [
+          0,
+          76363
+        ],
+        [
+          0,
+          76365
+        ],
+        [
+          0,
+          76364
+        ],
+        [
+          0,
+          76366
+        ],
+        [
+          0,
+          76367
+        ],
+        [
+          0,
+          76368
+        ],
+        [
+          0,
+          76369
+        ],
+        [
+          0,
+          76370
+        ],
+        [
+          0,
+          76371
+        ],
+        [
+          0,
+          76372
+        ],
+        [
+          0,
+          76373
+        ],
+        [
+          0,
+          76374
+        ],
+        [
+          0,
+          76375
+        ],
+        [
+          0,
+          76376
+        ],
+        [
+          0,
+          76377
+        ],
+        [
+          0,
+          76378
+        ],
+        [
+          0,
+          76379
+        ],
+        [
+          0,
+          76380
+        ],
+        [
+          0,
+          76381
+        ],
+        [
+          0,
+          76382
+        ],
+        [
+          0,
+          76383
+        ],
+        [
+          0,
+          76384
+        ],
+        [
+          0,
+          76385
+        ],
+        [
+          0,
+          76386
+        ],
+        [
+          0,
+          76387
+        ],
+        [
+          0,
+          76388
+        ],
+        [
+          0,
+          76389
+        ],
+        [
+          0,
+          76390
+        ],
+        [
+          0,
+          76391
+        ],
+        [
+          0,
+          76392
+        ],
+        [
+          0,
+          76393
+        ],
+        [
+          0,
+          76394
+        ],
+        [
+          0,
+          76395
+        ],
+        [
+          0,
+          76396
+        ],
+        [
+          0,
+          76397
+        ],
+        [
+          0,
+          76398
+        ],
+        [
+          0,
+          76400
+        ],
+        [
+          0,
+          76401
+        ],
+        [
+          0,
+          76402
+        ],
+        [
+          0,
+          76399
+        ],
+        [
+          0,
+          76403
+        ],
+        [
+          0,
+          76404
+        ],
+        [
+          0,
+          76405
+        ],
+        [
+          0,
+          76406
+        ],
+        [
+          0,
+          76407
+        ],
+        [
+          0,
+          76408
+        ],
+        [
+          0,
+          76409
+        ],
+        [
+          0,
+          76410
+        ],
+        [
+          0,
+          76411
+        ],
+        [
+          0,
+          76412
+        ],
+        [
+          0,
+          76413
+        ],
+        [
+          0,
+          76414
+        ],
+        [
+          0,
+          76415
+        ],
+        [
+          0,
+          76416
+        ],
+        [
+          0,
+          76417
+        ],
+        [
+          0,
+          76418
+        ],
+        [
+          0,
+          76419
+        ],
+        [
+          0,
+          76420
+        ],
+        [
+          0,
+          76421
+        ],
+        [
+          0,
+          76423
+        ],
+        [
+          0,
+          76424
+        ],
+        [
+          0,
+          76422
+        ],
+        [
+          0,
+          76425
+        ],
+        [
+          0,
+          76426
+        ],
+        [
+          0,
+          76427
+        ],
+        [
+          0,
+          76428
+        ],
+        [
+          0,
+          76429
+        ],
+        [
+          0,
+          76430
+        ],
+        [
+          0,
+          76431
+        ],
+        [
+          0,
+          76434
+        ],
+        [
+          0,
+          76435
+        ],
+        [
+          0,
+          76436
+        ],
+        [
+          0,
+          76437
+        ],
+        [
+          0,
+          76438
+        ],
+        [
+          0,
+          76439
+        ],
+        [
+          0,
+          76440
+        ],
+        [
+          0,
+          76441
+        ],
+        [
+          0,
+          76442
+        ],
+        [
+          0,
+          76443
+        ],
+        [
+          0,
+          76444
+        ],
+        [
+          0,
+          76445
+        ],
+        [
+          0,
+          76446
+        ],
+        [
+          0,
+          76447
+        ],
+        [
+          0,
+          76432
+        ],
+        [
+          0,
+          76433
+        ],
+        [
+          0,
+          76448
+        ],
+        [
+          0,
+          76449
+        ],
+        [
+          0,
+          76450
+        ],
+        [
+          0,
+          76451
+        ],
+        [
+          0,
+          76452
+        ],
+        [
+          0,
+          76453
+        ],
+        [
+          0,
+          76454
+        ],
+        [
+          0,
+          76455
+        ],
+        [
+          0,
+          76456
+        ],
+        [
+          0,
+          76457
+        ],
+        [
+          0,
+          76458
+        ],
+        [
+          0,
+          76459
+        ],
+        [
+          0,
+          76460
+        ],
+        [
+          0,
+          76461
+        ],
+        [
+          0,
+          76462
+        ],
+        [
+          0,
+          76463
+        ],
+        [
+          0,
+          76465
+        ],
+        [
+          0,
+          76464
+        ],
+        [
+          0,
+          76466
+        ],
+        [
+          0,
+          76467
+        ],
+        [
+          0,
+          76468
+        ],
+        [
+          0,
+          76469
+        ],
+        [
+          0,
+          76470
+        ],
+        [
+          0,
+          76471
+        ],
+        [
+          0,
+          76472
+        ],
+        [
+          0,
+          76473
+        ],
+        [
+          0,
+          76475
+        ],
+        [
+          0,
+          76474
+        ],
+        [
+          0,
+          76476
+        ],
+        [
+          0,
+          76478
+        ],
+        [
+          0,
+          76477
+        ],
+        [
+          0,
+          76479
+        ],
+        [
+          0,
+          76480
+        ],
+        [
+          0,
+          76481
+        ],
+        [
+          0,
+          76482
+        ],
+        [
+          0,
+          76483
+        ],
+        [
+          0,
+          76484
+        ],
+        [
+          0,
+          76486
+        ],
+        [
+          0,
+          76487
+        ],
+        [
+          0,
+          76488
+        ],
+        [
+          0,
+          76489
+        ],
+        [
+          0,
+          76490
+        ],
+        [
+          0,
+          76485
+        ],
+        [
+          0,
+          76491
+        ],
+        [
+          0,
+          76492
+        ],
+        [
+          0,
+          76493
+        ],
+        [
+          0,
+          76494
+        ],
+        [
+          0,
+          76495
+        ],
+        [
+          0,
+          76496
+        ],
+        [
+          0,
+          76497
+        ],
+        [
+          0,
+          76498
+        ],
+        [
+          0,
+          76499
+        ],
+        [
+          0,
+          76500
+        ],
+        [
+          0,
+          76501
+        ],
+        [
+          0,
+          76502
+        ],
+        [
+          0,
+          76503
+        ]
+      ]
+    },
+    {
+      "path_id": 76505,
+      "name": "BridgesAndPorts_Bridges",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76506,
+      "name": "BridgesAndPorts_CargoHarborComplex",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76507,
+      "name": "BridgesAndPorts_Industrial",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76508,
+      "name": "BridgesAndPorts_Lighthouse",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76509,
+      "name": "BridgesAndPorts_Piers",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76510,
+      "name": "BridgesAndPorts_Props",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76511,
+      "name": "BridgesAndPorts_Quays",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76512,
+      "name": "BridgesAndPorts_Roads",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76513,
+      "name": "BridgesAndPorts_SoundCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76514,
+      "name": "BridgesAndPorts_Vehicles",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76515,
+      "name": "BridgesAndPorts_Waterways",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76516,
+      "name": "BridgesAndPorts2_Audio",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76517,
+      "name": "BridgesAndPorts2_Bridges",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76518,
+      "name": "BridgesAndPorts2_CargoHarborComplex",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76519,
+      "name": "BridgesAndPorts2_CommercialLowWaterfront",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76520,
+      "name": "BridgesAndPorts2_EU_CommercialLowWaterfront",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76521,
+      "name": "BridgesAndPorts2_HarborComplex",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76522,
+      "name": "BridgesAndPorts2_NA_CommercialLowWaterfront",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76523,
+      "name": "BridgesAndPorts2_Pathways",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76524,
+      "name": "BridgesAndPorts2_Props",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76525,
+      "name": "BridgesAndPorts2_Quays",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76526,
+      "name": "BridgesAndPorts2_Services",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76527,
+      "name": "BridgesAndPorts2_Vehicles",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76528,
+      "name": "CharactersAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76529,
+      "name": "ChirpAccountCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76530,
+      "name": "ChirpCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76531,
+      "name": "CitizensCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76532,
+      "name": "CityServicesAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76533,
+      "name": "CompaniesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76534,
+      "name": "EU_ResidentialLowWaterfront",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76535,
+      "name": "EU_ResidentialLowWaterfrontSignature",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76536,
+      "name": "EU_ResidentialNetFences",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76537,
+      "name": "EU_ResidentialWaterfrontProps",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76538,
+      "name": "NA_ResidentialLowWaterfront",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76539,
+      "name": "NA_ResidentialLowWaterfrontSignature",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76540,
+      "name": "NA_ResidentialWaterfrontProps",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76541,
+      "name": "shared_ResidentialWaterfrontProps",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76542,
+      "name": "shared_WaterfrontTrees",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76543,
+      "name": "CreaturesAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76544,
+      "name": "DebugCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76545,
+      "name": "DevTreeCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76546,
+      "name": "DowntownMarketSetCollection",
+      "active": true,
+      "child_collections": [
+        [
+          0,
+          76547
+        ],
+        [
+          0,
+          76548
+        ]
+      ]
+    },
+    {
+      "path_id": 76547,
+      "name": "DowntownMarketSet_Buildings",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76548,
+      "name": "DowntownMarketSet_Props",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76549,
+      "name": "EU_CommercialGasStationAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76550,
+      "name": "EU_CommercialHighAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76551,
+      "name": "EU_CommercialHighSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76552,
+      "name": "EU_CommercialHotelAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76553,
+      "name": "EU_CommercialLowAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76554,
+      "name": "EU_CommercialLowSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76555,
+      "name": "EU_CommercialMotelAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76556,
+      "name": "EU_DecorationsRoad",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76557,
+      "name": "EU_MixedAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76558,
+      "name": "EU_MixedLeftAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76559,
+      "name": "EU_MixedRightAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76560,
+      "name": "EU_MixedSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76561,
+      "name": "EU_MixedStorefrontAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76562,
+      "name": "EU_NetLine",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76563,
+      "name": "EU_NetRoad",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76564,
+      "name": "EU_PropsDynamic",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76565,
+      "name": "EU_ResidentialHighAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76566,
+      "name": "EU_ResidentialHighSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76567,
+      "name": "EU_ResidentialLowAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76568,
+      "name": "EU_ResidentialLowSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76569,
+      "name": "EU_ResidentialMediumAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76570,
+      "name": "EU_ResidentialMediumRowAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76571,
+      "name": "EU_ResidentialMediumRowSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76572,
+      "name": "EU_ResidentialMediumSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76573,
+      "name": "EU_Trees",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76574,
+      "name": "EU_Vehicles",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76575,
+      "name": "EditorCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76576,
+      "name": "EditorTutorialsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76577,
+      "name": "EnvironmentCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76578,
+      "name": "EventsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76579,
+      "name": "ExtractorCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76580,
+      "name": "FeaturesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76581,
+      "name": "FreeUpdate01Props",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76582,
+      "name": "FreeUpdate01Roundabouts",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76583,
+      "name": "FreeUpdate01ServiceBuildings",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76584,
+      "name": "FreeUpdate01ServiceVehicles",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76585,
+      "name": "GameModeCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76586,
+      "name": "GeneratedAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76587,
+      "name": "GlossaryCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76588,
+      "name": "InfoViewsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76589,
+      "name": "LandscapingCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76590,
+      "name": "LifepathEventCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76591,
+      "name": "MarkerCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76592,
+      "name": "MilestonesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76593,
+      "name": "NA_CommercialGasStationAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76594,
+      "name": "NA_CommercialHighAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76595,
+      "name": "NA_CommercialHighSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76596,
+      "name": "NA_CommercialHotelAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76597,
+      "name": "NA_CommercialLowAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76598,
+      "name": "NA_CommercialLowSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76599,
+      "name": "NA_CommercialMotelAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76600,
+      "name": "NA_DecorationsRoad",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76601,
+      "name": "NA_MixedAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76602,
+      "name": "NA_MixedLeftAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76603,
+      "name": "NA_MixedRightAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76604,
+      "name": "NA_MixedSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76605,
+      "name": "NA_MixedStorefrontAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76606,
+      "name": "NA_NetLine",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76607,
+      "name": "NA_NetRoad",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76608,
+      "name": "NA_PropsDynamic",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76609,
+      "name": "NA_ResidentialHighAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76610,
+      "name": "NA_ResidentialHighSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76611,
+      "name": "NA_ResidentialLowAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76612,
+      "name": "NA_ResidentialLowSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76613,
+      "name": "NA_ResidentialMediumAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76614,
+      "name": "NA_ResidentialMediumRowAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76615,
+      "name": "NA_ResidentialMediumRowSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76616,
+      "name": "NA_ResidentialMediumSignatureAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76617,
+      "name": "NA_Trees",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76618,
+      "name": "NA_Vehicles",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76619,
+      "name": "NotificationCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76620,
+      "name": "EU_MixedOldTownAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76621,
+      "name": "EU_ResidentialLowOldTownAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76622,
+      "name": "NA_MixedOldTownAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76623,
+      "name": "NA_ResidentialLowOldTownAssetCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76624,
+      "name": "PropsOldTown",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76625,
+      "name": "ServicesOldTown",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76626,
+      "name": "VehiclesOldTown",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76627,
+      "name": "PoliciesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76628,
+      "name": "RadioEventCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76630,
+      "name": "ResourcesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76631,
+      "name": "RoadPatch01Buildings",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76632,
+      "name": "RoadPatch01Props",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76633,
+      "name": "RoadPatch01Roads",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76634,
+      "name": "RoadPatch01Roundabouts",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76635,
+      "name": "RoutesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76636,
+      "name": "ServicesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76637,
+      "name": "SettingsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76638,
+      "name": "SoundCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76639,
+      "name": "StatisticsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76640,
+      "name": "SubServicesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76641,
+      "name": "TutorialsCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76642,
+      "name": "UIGroupCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76643,
+      "name": "UIProductionLinkCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76644,
+      "name": "VFXCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76645,
+      "name": "WeatherCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76646,
+      "name": "WhatsNewCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76647,
+      "name": "ZonesCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76648,
+      "name": "shared_AnimatedProps",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76649,
+      "name": "shared_AssetPack01Collection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76650,
+      "name": "shared_Bushes",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76651,
+      "name": "shared_CS1OwnerCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76652,
+      "name": "shared_Decals",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76653,
+      "name": "shared_DecorationsBrand",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76654,
+      "name": "shared_DecorationsCommercial",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76655,
+      "name": "shared_DecorationsDynamic",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76656,
+      "name": "shared_DecorationsIndustrial",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76657,
+      "name": "shared_DecorationsIndustrialExtractor",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76658,
+      "name": "shared_DecorationsIndustrialManufacturing",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76659,
+      "name": "shared_DecorationsNature",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76660,
+      "name": "shared_DecorationsNet",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76661,
+      "name": "shared_DecorationsPark",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76662,
+      "name": "shared_DecorationsResidential",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76663,
+      "name": "shared_DecorationsRoad",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76664,
+      "name": "shared_DecorationsService",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76665,
+      "name": "shared_DigitalDeluxeEdition",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76666,
+      "name": "shared_IndustrialExtractorAgricultureCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76667,
+      "name": "shared_IndustrialExtractorOilCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76668,
+      "name": "shared_IndustrialExtractorOreCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76669,
+      "name": "shared_IndustrialHubCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76670,
+      "name": "shared_IndustrialManufacturingCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76671,
+      "name": "shared_IndustrialManufacturingSignatureCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76672,
+      "name": "shared_IndustrialManufacturingWarehouseCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76673,
+      "name": "shared_IndustrialStorageAgricultureCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76674,
+      "name": "shared_IndustrialStorageForestryCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76675,
+      "name": "shared_IndustrialStorageOilCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76676,
+      "name": "shared_IndustrialStorageOreCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76677,
+      "name": "shared_Intersections",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76678,
+      "name": "shared_LightEffects",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76679,
+      "name": "shared_NatureRuins",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76680,
+      "name": "shared_NetAirway",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76681,
+      "name": "shared_NetBridge",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76682,
+      "name": "shared_NetFences",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76683,
+      "name": "shared_NetLine",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76684,
+      "name": "shared_NetObjects",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76685,
+      "name": "shared_NetPedestrian",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76686,
+      "name": "shared_NetPublicTransport",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76687,
+      "name": "shared_NetRoad",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76688,
+      "name": "shared_NetSubway",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76689,
+      "name": "shared_NetTrain",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76690,
+      "name": "shared_NetTram",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76691,
+      "name": "shared_NetUtility",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76692,
+      "name": "shared_NetWaterway",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76693,
+      "name": "shared_OfficeHigh",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76694,
+      "name": "shared_OfficeHighSignature",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76695,
+      "name": "shared_OfficeLow",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76696,
+      "name": "shared_OfficeLowSignature",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76697,
+      "name": "shared_PDX_AccountIncentive",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76698,
+      "name": "shared_PreOrderIncentive",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76699,
+      "name": "shared_PropsBrand",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76700,
+      "name": "shared_PropsCommercial",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76701,
+      "name": "shared_PropsDynamic",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76702,
+      "name": "shared_PropsIndustrial",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76703,
+      "name": "shared_PropsLight",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76704,
+      "name": "shared_PropsPark",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76705,
+      "name": "shared_PropsResidential",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76706,
+      "name": "shared_PropsResidentialPlants",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76707,
+      "name": "shared_PropsService",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76708,
+      "name": "shared_ResidentialLowRentCollection",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76709,
+      "name": "shared_Trees",
+      "active": true,
+      "child_collections": []
+    },
+    {
+      "path_id": 76710,
+      "name": "shared_Vehicles",
+      "active": true,
+      "child_collections": []
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "inGame": true,
+  "open": false,
+  "picking": false,
+  "selected": null,
+  "level": 5,
+  "seconds": 60,
+  "warning": 30,
+  "citywide": true,
+  "direction": 0,
+  "message": "先选择灾难，再在地图上选点。",
+  "frame": 16392406,
+  "types": [
+    {
+      "id": "Earthquake",
+      "name": "地震",
+      "kind": "earthquake",
+      "nativeName": "自定义 · 地震"
+    },
+    {
+      "id": "Meteor",
+      "name": "陨石",
+      "kind": "meteor",
+      "nativeName": "自定义 · 陨石"
+    },
+    {
+      "id": "Sinkhole",
+      "name": "地面塌陷",
+      "kind": "sinkhole",
+      "nativeName": "自定义 · 地面塌陷"
+    },
+    {
+      "id": "Building Fire",
+      "name": "建筑火灾",
+      "kind": "building",
+      "nativeName": "Building Fire"
+    },
+    {
+      "id": "Forest Fire",
+      "name": "森林火灾",
+      "kind": "forest",
+      "nativeName": "Forest Fire"
+    },
+    {
+      "id": "Hail Storm",
+      "name": "冰雹",
+      "kind": "weather",
+      "nativeName": "Hail Storm"
+    },
+    {
+      "id": "Tornado",
+      "name": "龙卷风",
+      "kind": "weather",
+      "nativeName": "Tornado"
+    },
+    {
+      "id": "Tsunami",
+      "name": "海啸",
+      "kind": "tsunami",
+      "nativeName": "Tsunami"
+    },
+    {
+      "id": "Flood",
+      "name": "洪水",
+      "kind": "flood",
+      "nativeName": "Flood"
+    },
+    {
+      "id": "Lightning Strike",
+      "name": "雷击",
+      "kind": "weather",
+      "nativeName": "Lightning Strike"
+    }
+  ],
+  "target": null,
+  "canSpawn": false,
+  "pending": false,
+  "active": []
+}

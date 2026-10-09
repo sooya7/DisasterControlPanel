@@ -1,0 +1,19 @@
+{
+  "arrived": true,
+  "evac": {
+    "endangered": 1430,
+    "controlled": 1430,
+    "toShelter": 10673,
+    "sheltered": 1,
+    "capacity": 25000,
+    "occupants": 1,
+    "shelters": 1,
+    "buses": 3,
+    "lastDamaged": 0,
+    "lastDestroyed": 0,
+    "lastWarned": 1430,
+    "lastTerrainApplied": 0,
+    "visualCount": 0,
+    "shaderAvailable": true
+  }
+}

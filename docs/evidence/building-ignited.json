@@ -1,0 +1,60 @@
+{
+  "state": {
+    "inGame": true,
+    "open": true,
+    "picking": false,
+    "selected": "Building Fire",
+    "level": 1,
+    "seconds": 120,
+    "message": "已触发“建筑火灾”，强度 1。",
+    "frame": 4857353,
+    "types": [
+      {
+        "id": "Building Fire",
+        "name": "建筑火灾",
+        "kind": "building",
+        "nativeName": "Building Fire"
+      },
+      {
+        "id": "Forest Fire",
+        "name": "森林火灾",
+        "kind": "forest",
+        "nativeName": "Forest Fire"
+      },
+      {
+        "id": "Hail Storm",
+        "name": "冰雹",
+        "kind": "weather",
+        "nativeName": "Hail Storm"
+      },
+      {
+        "id": "Tornado",
+        "name": "龙卷风",
+        "kind": "weather",
+        "nativeName": "Tornado"
+      }
+    ],
+    "target": null,
+    "canSpawn": false,
+    "pending": false,
+    "active": [
+      {
+        "id": 57655,
+        "version": 3,
+        "name": "建筑火灾",
+        "variant": "DisasterControlPanel.Building Fire.L1",
+        "seconds": -1.0,
+        "weather": null
+      }
+    ]
+  },
+  "target": {
+    "exists": true,
+    "burning": true,
+    "intensity": 0.2,
+    "fireEvent": 57655,
+    "created": false,
+    "destroyed": false,
+    "hotspotFrames": 0
+  }
+}

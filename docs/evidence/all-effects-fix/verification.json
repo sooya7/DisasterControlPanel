@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-06T13:02:06.695707+08:00",
+  "status": "All reviewed corrections implemented; offline verification passed; runtime appearance/propagation/evacuation/performance acceptance pending",
+  "gameTestsPerformed": false,
+  "checks": {
+    "productionHelperRegression": "PASS: original cases plus diagonal/curved/sloped river, complete footprint, ridge, native-warning terrain reachability, traveling phase, wet strip continuity, lifetime/pause/cancel, hail visibility and terrain landing",
+    "recordedWaterGrid": {
+      "rawFloodCenters": 256,
+      "safeCompleteFloodFootprints": 244,
+      "baseTsunamiFrontCenters": 21,
+      "note": "Historical grid input only; complete footprint wet cells checked offline; production builds up to three coastward wave strips."
+    },
+    "browserUI": "PASS: retained parameters, select/map/stop/cancel/pending, small screen, remount; simulated input, no JS errors",
+    "releaseBuild": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "debugBuild": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "releaseDevServerAbsent": true,
+    "sourceScope": "PASS: full baseline hashes, no unexpected changes; all four scoped stage budgets pass",
+    "serializationSchemaUnchanged": true,
+    "presentationNoGameplayWrites": true,
+    "installedDllMatchesManifest": true
+  },
+  "dllSha256": "0847279BD873E8699E6A50F13BBA0D3DCE6D3FCF8D2249D98D9297D33C99013A",
+  "previousVersionBackup": "C:\\Users\\iulze\\AppData\\Local\\DisasterControlPanel\\backups\\20261006-130054-308",
+  "runtimePending": [
+    "actual native water propagation and city inundation",
+    "terrain protection under real GPU simulation and terrain changes during an event",
+    "native warnings and shelter/transport flow, including complex detours/residual water",
+    "HDRP transparency, lighting, audio quality and hail visuals",
+    "large-city CPU/GPU cost",
+    "save reload with active events / legacy water behavior"
+  ]
+}

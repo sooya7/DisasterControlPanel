@@ -1,0 +1,40 @@
+{
+  "inGame": true,
+  "open": true,
+  "picking": false,
+  "selected": "Tornado",
+  "level": 8,
+  "seconds": 120,
+  "message": "已请求停止 1 场灾害。暂停时需要恢复模拟；已造成的损伤不会恢复。",
+  "frame": 4857348,
+  "types": [
+    {
+      "id": "Building Fire",
+      "name": "建筑火灾",
+      "kind": "building",
+      "nativeName": "Building Fire"
+    },
+    {
+      "id": "Forest Fire",
+      "name": "森林火灾",
+      "kind": "forest",
+      "nativeName": "Forest Fire"
+    },
+    {
+      "id": "Hail Storm",
+      "name": "冰雹",
+      "kind": "weather",
+      "nativeName": "Hail Storm"
+    },
+    {
+      "id": "Tornado",
+      "name": "龙卷风",
+      "kind": "weather",
+      "nativeName": "Tornado"
+    }
+  ],
+  "target": null,
+  "canSpawn": false,
+  "pending": false,
+  "active": []
+}

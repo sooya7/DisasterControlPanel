@@ -1,0 +1,52 @@
+#dcp-root { position: fixed; right: 24px; bottom: 116px; z-index: 1000; font-family: "Noto Sans SC", sans-serif; font-size: 15px; color: #eef5f8; }
+#dcp-root * { box-sizing: border-box; }
+#dcp-root button { font-family: "Noto Sans SC", sans-serif; font-size: 15px; }
+#dcp-root button { border: 0; color: #eef5f8; cursor: pointer; }
+#dcp-root .dcp-disabled { opacity: .45; cursor: default; }
+#dcp-root button:focus, #dcp-root select:focus, #dcp-root input:focus { box-shadow: 0 0 0 2px #8edafb; }
+#dcp-root button:hover { filter: brightness(1.16); }
+#dcp-root .dcp-launcher { display: flex; align-items: center; padding: 10px 16px; background: #29485c; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,.35); }
+#dcp-root .dcp-launcher svg { width: 24px; height: 24px; margin-right: 7px; }
+#dcp-root .dcp-panel { position: absolute; bottom: 58px; right: 0; width: 422px; max-width: 86vw; max-height: 76vh; overflow-y: auto; background: #203747; border-radius: 8px; box-shadow: 0 7px 28px rgba(0,0,0,.5); border: 1px solid #527082; }
+#dcp-root .dcp-head { display: flex; align-items: center; justify-content: space-between; padding: 13px 17px; background: #29485c; }
+#dcp-root h2 { font-size: 19px; font-weight: 600; margin: 0; }
+#dcp-root .dcp-close { background: transparent; font-size: 26px; width: 30px; height: 30px; line-height: 26px; }
+#dcp-root .dcp-body { padding: 17px; }
+#dcp-root .dcp-choices { display: flex; flex-wrap: wrap; margin: -4px; }
+#dcp-root .dcp-choice { display: flex; align-items: center; width: 47%; margin: 4px; padding: 8px; background: #314d5e; border: 1px solid transparent; border-radius: 5px; text-align: left; }
+#dcp-root .dcp-choice svg { width: 24px; height: 24px; margin-right: 9px; flex-shrink: 0; }
+#dcp-root .dcp-selected { background: #285f78; border: 1px solid #5bbde1; }
+#dcp-root p { margin: 0; }
+#dcp-root .dcp-description { color: #adbfcb; font-size: 13px; line-height: 1.5; margin: 12px 0 18px; }
+#dcp-root .dcp-control-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+#dcp-root .dcp-control-label strong { font-weight: 600; }
+#dcp-root .dcp-control { padding: 14px 0; border-top: 1px solid #476071; }
+#dcp-root .dcp-levels { display: flex; }
+#dcp-root .dcp-level { flex: 1; padding: 8px 0; margin: 0 2px; background: #314d5e; border: 1px solid #527082; border-radius: 3px; }
+#dcp-root .dcp-range-ends { display: flex; justify-content: space-between; color: #adbfcb; font-size: 12px; margin-top: 8px; }
+#dcp-root .dcp-duration { margin: 4px 0 15px; }
+#dcp-root .dcp-times { display: flex; margin-top: 9px; }
+#dcp-root .dcp-time { flex: 1; margin: 0 2px; padding: 7px 0; background: #314d5e; border: 1px solid #527082; border-radius: 3px; }
+#dcp-root .dcp-level.dcp-selected, #dcp-root .dcp-time.dcp-selected { background: #285f78; border-color: #5bbde1; }
+#dcp-root .dcp-secondary { padding: 9px 14px; background: #38647e; border-radius: 4px; }
+#dcp-root .dcp-message { font-size: 13px; color: #c6d9e5; line-height: 1.5; margin: 6px 0 10px; }
+#dcp-root .dcp-spawn { width: 100%; padding: 12px; background: #ed874f; color: #201810; border-radius: 4px; font-weight: 600; }
+#dcp-root .dcp-footnote { color: #adbfcb; font-size: 12px; line-height: 1.4; margin: 8px 0; }
+#dcp-root .dcp-ongoing { margin-top: 17px; padding-top: 15px; border-top: 1px solid #476071; }
+#dcp-root .dcp-stop { padding: 6px 10px; background: #314d5e; border: 1px solid #718999; border-radius: 4px; font-size: 12px; }
+#dcp-root .dcp-active { max-height: 100px; overflow-y: auto; }
+#dcp-root .dcp-event { display: flex; justify-content: space-between; margin: 7px 0; font-size: 13px; }
+#dcp-root .dcp-event { align-items: center; }
+#dcp-root .dcp-event-name { flex: 1; }
+#dcp-root .dcp-event-status { color: #adbfcb; margin: 0 8px; }
+#dcp-root .dcp-mini { padding: 3px 8px; margin-left: 4px; background: #314d5e; border: 1px solid #527082; border-radius: 3px; font-size: 12px !important; }
+#dcp-root .dcp-repeat { width: 100%; margin-top: 8px; padding: 7px; background: #314d5e; border: 1px solid #527082; border-radius: 4px; font-size: 13px !important; }
+#dcp-root .dcp-repeat.dcp-selected { background: #285f78; border-color: #5bbde1; }
+#dcp-root .dcp-empty { font-size: 13px; color: #adbfcb; }
+#dcp-root .dcp-trigger { margin-bottom: 16px; }
+#dcp-root .dcp-picking { display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #285f78; border: 1px solid #5bbde1; border-radius: 5px; }
+#dcp-root .dcp-picking > div { flex: 1; margin-right: 10px; }
+#dcp-root .dcp-picking p { font-size: 12px; color: #c6d9e5; line-height: 1.5; margin-top: 6px; }
+#dcp-root .dcp-evacuation { margin: 13px 0 0; padding-top: 8px; border-top: 1px solid #476071; }
+#dcp-root .dcp-evacuation button { flex: 1; margin: 0 3px; font-size: 13px; }
+@media (max-height: 760px) { #dcp-root { bottom: 90px; } #dcp-root .dcp-panel { max-height: 72vh; } #dcp-root .dcp-choice { padding: 8px; } }

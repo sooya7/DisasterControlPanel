@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>DisasterControlPanel</AssemblyName>
+    <Version>0.2.1</Version>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GamePath Condition="'$(GamePath)' == ''">E:\SteamLibrary\steamapps\common\Cities Skylines II</GamePath>
+    <Managed>$(GamePath)\Cities2_Data\Managed</Managed>
+    <PathMap>$(MSBuildProjectDirectory)=DisasterControlPanel</PathMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DefineConstants>$(DefineConstants);DCP_DEV</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <EmbeddedResource Include="..\ui\panel.js" LogicalName="DCP.panel.js" />
+    <EmbeddedResource Include="..\ui\panel.css" LogicalName="DCP.panel.css" />
+    <Reference Include="Game;Colossal.Core;Colossal.Localization;Colossal.Logging;Colossal.UI;Colossal.UI.Binding;Colossal.IO.AssetDatabase;Colossal.AssetPipeline;Colossal.Mathematics;Colossal.Collections;Unity.Entities;Unity.Collections;Unity.Mathematics;Unity.Burst;UnityEngine;UnityEngine.CoreModule;UnityEngine.InputLegacyModule;UnityEngine.VFXModule;UnityEngine.AudioModule;Unity.RenderPipelines.HighDefinition.Runtime;Unity.RenderPipelines.Core.Runtime;cohtml.Net;System.Memory;Newtonsoft.Json">
+      <HintPath>$(Managed)\%(Identity).dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <Target Name="ValidateGame" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(Managed)\Game.dll')" Text="请使用 -p:GamePath=游戏目录指定本机游戏。" />
+  </Target>
+</Project>
+

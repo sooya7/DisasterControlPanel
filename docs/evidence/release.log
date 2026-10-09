@@ -1,0 +1,7 @@
+[2026-10-05 07:23:42,081] [INFO]  DisasterControlPanel 0.1.0 loaded
+[2026-10-05 07:23:55,648] [INFO]  Registered disaster Building Fire (building) with 10 manual intensity levels
+[2026-10-05 07:23:55,651] [INFO]  Registered disaster Forest Fire (forest) with 10 manual intensity levels
+[2026-10-05 07:23:55,655] [INFO]  Registered disaster Hail Storm (weather) with 10 manual intensity levels
+[2026-10-05 07:23:55,660] [INFO]  Registered disaster Tornado (weather) with 10 manual intensity levels
+[2026-10-05 07:23:59,193] [INFO]  Panel mounted in game UI
+[2026-10-05 07:24:08,005] [INFO]  Panel mounted in game UI

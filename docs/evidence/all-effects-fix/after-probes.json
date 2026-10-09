@@ -1,0 +1,17 @@
+{
+  "evidence": "Actual C# helpers only, no game or GPU execution",
+  "axisSources": 25,
+  "diagonalSources": 49,
+  "slopedSources": 25,
+  "curvedSources": 45,
+  "safeRadiusBeforeRidge": 63.583282,
+  "sourceReachesDryLandBehindRidge": false,
+  "floodTargetAt10Seconds": 7.692308,
+  "floodPeakAt117Seconds": 90,
+  "meteorLeadAt8x": 24,
+  "firstQuakePulseAgeAtSecondPulse": 3,
+  "worldHailVisibleFromFarCamera": true,
+  "preciseDiagonalDirection": 45,
+  "dryLandFoam": 0,
+  "syntheticProbeMilliseconds": 11.44
+}

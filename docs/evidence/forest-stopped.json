@@ -1,0 +1,40 @@
+{
+  "inGame": true,
+  "open": true,
+  "picking": true,
+  "selected": "Forest Fire",
+  "level": 1,
+  "seconds": 180,
+  "message": "请点击野生树木，园林树木不能作为森林火灾起点。",
+  "frame": 4857882,
+  "types": [
+    {
+      "id": "Building Fire",
+      "name": "建筑火灾",
+      "kind": "building",
+      "nativeName": "Building Fire"
+    },
+    {
+      "id": "Forest Fire",
+      "name": "森林火灾",
+      "kind": "forest",
+      "nativeName": "Forest Fire"
+    },
+    {
+      "id": "Hail Storm",
+      "name": "冰雹",
+      "kind": "weather",
+      "nativeName": "Hail Storm"
+    },
+    {
+      "id": "Tornado",
+      "name": "龙卷风",
+      "kind": "weather",
+      "nativeName": "Tornado"
+    }
+  ],
+  "target": null,
+  "canSpawn": false,
+  "pending": false,
+  "active": []
+}

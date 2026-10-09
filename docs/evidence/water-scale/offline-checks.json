@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-06T12:14:38.417947+08:00",
+  "status": "offline_verified; live_water_acceptance_pending",
+  "target": "Cities Skylines II 1.6.2f1 new water",
+  "constraints": "Do not start or operate game. All checks since this constraint are offline.",
+  "checks": {
+    "actualHelperRegression": "PASS: grades, connected sea/river, narrow barrier, separate basin, elevated lake, main and tail wave, drawdown, stop/expiry, zero duration, map boundary, existing visual timing",
+    "recordedGrid": "PASS: 66 flood sources / 21 tsunami sources from previously captured water grid; no GPU run",
+    "ui": "PASS: existing browser regression, no JS errors; simulated map input",
+    "releaseBuild": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "debugBuild": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "releaseNoDevServer": true,
+    "installedDllMatchesManifest": true
+  },
+  "dllSha256": "7CF72EADB1F0E67E6DF17361E217EB65A94814D2390E0EA0EB2DFF9C132147AA",
+  "installation": {
+    "backupLatest": "C:\\Users\\iulze\\AppData\\Local\\DisasterControlPanel\\backups\\20261006-121337-975",
+    "backupBeforeEnhancement": "C:\\Users\\iulze\\AppData\\Local\\DisasterControlPanel\\backups\\20261006-083102-815",
+    "currentHash": "7CF72EADB1F0E67E6DF17361E217EB65A94814D2390E0EA0EB2DFF9C132147AA"
+  },
+  "nominalGrade10": {
+    "level": 10,
+    "floodPeakMetres": 90,
+    "tsunamiPeakMetres": 100,
+    "floodSourceExtentMetres": 2688,
+    "waveFrontMetres": 8960,
+    "offshoreMetres": 1792
+  },
+  "runtimePending": [
+    "visible main crest and advance to coast",
+    "large lowland city inundation",
+    "high terrain stays protective",
+    "pause/stop/retreat",
+    "GPU performance at wide forcing footprint",
+    "legacy branch grade behavior remains native"
+  ]
+}
