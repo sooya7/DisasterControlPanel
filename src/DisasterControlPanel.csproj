@@ -3,7 +3,7 @@
     <TargetFramework>net472</TargetFramework>
     <LangVersion>9.0</LangVersion>
     <AssemblyName>DisasterControlPanel</AssemblyName>
-    <Version>0.2.1</Version>
+    <Version>0.2.2</Version>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GamePath Condition="'$(GamePath)' == ''">E:\SteamLibrary\steamapps\common\Cities Skylines II</GamePath>
     <Managed>$(GamePath)\Cities2_Data\Managed</Managed>

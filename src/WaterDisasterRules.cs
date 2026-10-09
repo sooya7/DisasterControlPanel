@@ -190,16 +190,28 @@ namespace DisasterControlPanel
             return result;
         }
     
-        // ---- 0.2.1 travelling wave wall (Cities: Skylines 1 style) ----
-        // The crest starts far offshore and is carried coastward as a narrow line of
-        // moving sources, so the native water sim produces a wall of water rolling in.
-        public const float CrestRadius = 110f, CrossSpacing = 160f, PathStep = 112f, BeyondOrigin = 900f;
+        // ---- 0.2.2 travelling wave wall with run-up (Cities: Skylines 1 style) ----
+        // The crest starts far offshore and is carried coastward as a narrow line of moving
+        // sources, steepening as it nears the coast, then keeps rolling inland over low ground
+        // until the terrain rises above the decaying wave. High ground stays dry.
+        public const float CrestRadius = 110f, CrossSpacing = 160f, PathStep = 112f, BeyondOrigin = 900f, LandStep = 56f, LandRadius = 64f;
         public static int TsunamiStart(int level) => 800 + (int)Math.Round(8f * Scale(level)) * 448;
         public static int WallHalfWidth(int level) => Math.Max(448, FrontHalfWidth(level));
+        public static float RunUp(int level) => 250f + 2750f * Scale(level);
+        // Share of the crest height left after this far inland (fraction of the run-up).
+        public static float LandDecay(float inland) => inland <= 0 ? 1 : inland >= 1 ? 0 : (float)Math.Pow(1 - inland, 1.3);
+        // Waves steepen as they reach shallow water: 60% of full height far out, 100% at the coast.
+        public static float Shoal(int level, float distance) => .6f + .4f * Sat(1 - distance / Math.Max(1f, TsunamiStart(level)));
         private static float Sat(double x) => (float)Math.Max(0, Math.Min(1, x));
 
-        // t in 0..1 of the forcing window. Main crest: travels 6%..45%, breaks on the
-        // coast and holds to 55%, dies by 72%. Tail wave at half height: 60%..97%.
+        internal struct WallCell
+        {
+            public float X, Z, Distance, Inland, Surface;
+            public bool Land;
+        }
+
+        // t in 0..1 of the forcing window. Main crest: travels 4%..50% (decelerating over land),
+        // holds its reach to 58%, dies by 72%. Tail wave at half height: 60%..97%.
         // Drawdown at the shore first, the sea pulling back before the wall arrives.
         public static void WaveWall(int level, uint frame, uint impact, uint end, int phase,
             out float mainTravel, out float mainHeight, out float tailTravel, out float tailHeight, out float drawdown)
@@ -209,52 +221,186 @@ namespace DisasterControlPanel
             double t = ((long)frame - impact) / (double)(end - impact);
             float peak = PeakHeight(11, level);
             if (t < .3) drawdown = -(float)Math.Sin(Math.PI * Math.Min(1, t / .3)) * Math.Min(4f, peak * .08f);
-            if (t >= .06 && t < .72)
+            if (t >= .04 && t < .72)
             {
-                double x = Sat((t - .06) / .39);
-                mainTravel = (float)(1 - Math.Pow(1 - x, 1.4));
-                mainHeight = peak * Sat((t - .06) / .05) * (t < .55 ? 1 : 1 - Sat((t - .55) / .17));
+                mainTravel = (float)(1 - Math.Pow(1 - Sat((t - .04) / .46), 1.5));
+                mainHeight = peak * Sat((t - .04) / .04) * (t < .58 ? 1 : 1 - Sat((t - .58) / .14));
             }
             if (t >= .6 && t < .97)
             {
-                tailTravel = (float)(1 - Math.Pow(1 - Sat((t - .6) / .25), 1.4));
+                tailTravel = (float)(1 - Math.Pow(1 - Sat((t - .6) / .25), 1.5));
                 tailHeight = peak * .5f * Sat((t - .6) / .04) * (t < .85 ? 1 : 1 - Sat((t - .85) / .12));
             }
         }
 
         // Distance (positive = offshore of the clicked coast point) the crest has reached.
-        public static float CrestDistance(int level, float travel) => TsunamiStart(level) - travel * (TsunamiStart(level) + BeyondOrigin);
+        public static float CrestDistance(int level, float travel) => TsunamiStart(level) - travel * (TsunamiStart(level) + BeyondOrigin + RunUp(level));
 
-        // Columns perpendicular to the coast, each a list of sea cells ordered offshore to
-        // shore with their offshore distance. Cells over land are skipped, so islands and
-        // headlands break the wall like real coastline does.
-        public static List<List<(float x, float z, float distance)>> WallPaths(float x, float z, float dx, float dz, int level, float halfMap, Func<float, float, bool> isSea)
+        // Columns perpendicular to the coast, each a list of cells ordered offshore to inland.
+        // Sea cells over land are skipped, so islands and headlands break the wall like real
+        // coastline does. From the column's last sea cell the path continues inland in short
+        // steps while every 7 m sample stays below the decaying wave surface.
+        public static List<List<WallCell>> WallPaths(float x, float z, float dx, float dz, int level, float halfMap, float seaLevel,
+            Func<float, float, bool> isSea, Func<float, float, float> terrain)
         {
-            bool SeaAt(float sx, float sz) => Math.Abs(sx) <= halfMap && Math.Abs(sz) <= halfMap && isSea(sx, sz);
-            var columns = new List<List<(float x, float z, float distance)>>();
+            bool Inside(float sx, float sz) => Math.Abs(sx) <= halfMap && Math.Abs(sz) <= halfMap;
+            var columns = new List<List<WallCell>>();
             int width = WallHalfWidth(level), start = TsunamiStart(level);
+            float peak = PeakHeight(11, level), runUp = RunUp(level);
             for (float cross = -width; cross <= width + .1f; cross += CrossSpacing)
             {
-                var column = new List<(float x, float z, float distance)>();
+                var column = new List<WallCell>();
                 for (float d = start; d >= -BeyondOrigin; d -= PathStep)
                 {
                     float sx = x - dx * d + dz * cross, sz = z - dz * d - dx * cross;
-                    if (SeaAt(sx, sz)) column.Add((sx, sz, d));
+                    if (Inside(sx, sz) && isSea(sx, sz)) column.Add(new WallCell { X = sx, Z = sz, Distance = d, Surface = seaLevel });
                     else if (column.Count > 0 && d < 0) break; // reached this column's shore
                 }
-                if (column.Count > 0) columns.Add(column);
+                if (column.Count == 0) continue;
+                var shore = column[column.Count - 1];
+                for (float inland = 7; inland <= runUp; inland += 7)
+                {
+                    float sx = shore.X + dx * inland, sz = shore.Z + dz * inland;
+                    float surface = seaLevel + peak * LandDecay(inland / runUp);
+                    if (!Inside(sx, sz) || terrain(sx, sz) >= surface - .3f) break; // blocked by rising ground
+                    if (inland % LandStep < 7)
+                        column.Add(new WallCell { X = sx, Z = sz, Distance = shore.Distance - inland, Inland = inland, Surface = surface, Land = true });
+                }
+                columns.Add(column);
             }
             return columns;
         }
 
-        // Index of the cell carrying the crest in a column, or -1 when the crest has not
-        // reached the column yet. Past the last sea cell the shore cell keeps pushing.
-        public static int CrestCell(List<(float x, float z, float distance)> column, float crest)
+        // Last cell the crest has reached in a column (the crest lies between it and the next),
+        // or -1 when the crest has not reached the column yet. Past the end the last cell keeps pushing.
+        public static int CrestCell(List<WallCell> column, float crest)
         {
-            if (column.Count == 0 || crest > column[0].distance + PathStep * .5f) return -1;
-            int best = column.Count - 1;
-            for (int i = 0; i < column.Count; i++) if (column[i].distance <= crest + PathStep * .5f) { best = i; break; }
-            return best;
+            if (column.Count == 0 || crest > column[0].Distance + PathStep * .5f) return -1;
+            for (int i = 0; i < column.Count; i++) if (column[i].Distance < crest) return Math.Max(0, i - 1);
+            return column.Count - 1;
+        }
+
+        // Smooth crest motion between two neighbouring cells: the interpolated disk stays inside
+        // the union of the two verified footprints when its radius is reduced by the half gap.
+        // Near either end a disk shrunk by the distance moved also stays inside that end's disk.
+        public static float BlendRadius(float radiusA, float radiusB, float gap, float t)
+        {
+            float r = Math.Min(radiusA, radiusB), h = gap * .5f;
+            float middle = r > h ? (float)Math.Sqrt(r * r - h * h) : 0;
+            return Math.Max(middle, Math.Max(radiusA - t * gap, radiusB - (1 - t) * gap));
+        }
+
+        // Crest height carried by a cell: shoaling at sea, decaying with distance over land.
+        public static float CrestHeight(int level, bool land, float inland, float distance, float height)
+            => land ? height * LandDecay(inland / RunUp(level)) : height * Shoal(level, distance);
+
+        // ---- 0.2.2 flood plain: water creeps into connected low ground as the level rises ----
+        public static float LandReach(int level) => 250f + 1750f * Scale(level);
+        public const int PlainStep = 64, PlainLimit = 320;
+
+        internal struct PlainCell
+        {
+            public float X, Z, Level, Base;
+        }
+
+        // Priority flood (minimax path) from the clicked water: each dry node records the
+        // lowest water level that reaches it along any path, and the water surface it is
+        // fed from. Only nodes a full-height flood can reach are kept; ridges higher than the
+        // flood protect everything behind them.
+        public static List<PlainCell> FloodPlain(float x, float z, int level, float halfMap, Func<float, float, (float terrain, float depth)> sample)
+        {
+            var result = new List<PlainCell>();
+            if (Math.Abs(x) > halfMap || Math.Abs(z) > halfMap) return result;
+            var origin = sample(x, z);
+            if (origin.depth <= .5f) return result;
+            float peak = PeakHeight(10, level), waterLimit = FloodExtent(level) + 224, landLimit = FloodExtent(level) + LandReach(level);
+            var best = new Dictionary<(int, int), float>();
+            var bases = new Dictionary<(int, int), float>();
+            var dry = new HashSet<(int, int)>();
+            var heap = new MinHeap();
+            // Keys are heights above the feeding water surface: the order in which ground floods.
+            var levels = new Dictionary<(int, int), float>();
+            float surface = origin.terrain + origin.depth;
+            best[(0, 0)] = 0; bases[(0, 0)] = surface; levels[(0, 0)] = surface;
+            heap.Push(0, 0, 0);
+            var done = new HashSet<(int, int)>();
+            while (heap.Count > 0)
+            {
+                var (_, gx, gz) = heap.Pop();
+                if (!done.Add((gx, gz))) continue;
+                float px = x + gx * PlainStep, pz = z + gz * PlainStep, baseHere = bases[(gx, gz)], levelHere = levels[(gx, gz)];
+                bool viaLand = dry.Contains((gx, gz));
+                if (viaLand) result.Add(new PlainCell { X = px, Z = pz, Level = levelHere, Base = baseHere });
+                for (int dz = -1; dz <= 1; dz++) for (int dx = -1; dx <= 1; dx++)
+                {
+                    if (dx == 0 && dz == 0) continue;
+                    var n = (gx + dx, gz + dz);
+                    if (done.Contains(n)) continue;
+                    float nx = x + n.Item1 * PlainStep, nz = z + n.Item2 * PlainStep;
+                    float distance = (float)Math.Sqrt((nx - x) * (nx - x) + (nz - z) * (nz - z));
+                    if (Math.Abs(nx) > halfMap || Math.Abs(nz) > halfMap || distance > landLimit) continue;
+                    // Highest ground or water surface crossed on the way, sampled at the native 7 m grid.
+                    float crossing = levelHere, previous = baseHere; bool wet = !viaLand;
+                    for (int i = 1; i <= 9; i++)
+                    {
+                        var p = sample(px + dx * PlainStep * i / 9f, pz + dz * PlainStep * i / 9f);
+                        float top = p.terrain + Math.Max(0, p.depth);
+                        // Water stays "the same body" while it is wet and level with its neighbour.
+                        wet = wet && p.depth > .5f && Math.Abs(top - previous) <= 2f;
+                        previous = top;
+                        crossing = Math.Max(crossing, wet ? Math.Min(top, levelHere) : top);
+                    }
+                    if (wet && distance > waterLimit) continue;
+                    if (!wet && crossing >= baseHere + peak - .5f) continue;
+                    float nLevel = wet ? previous : crossing, nBase = wet ? previous : baseHere, key = nLevel - nBase;
+                    if (best.TryGetValue(n, out float known) && known <= key) continue;
+                    best[n] = key; bases[n] = nBase; levels[n] = nLevel;
+                    if (wet) dry.Remove(n); else dry.Add(n);
+                    heap.Push(key, n.Item1, n.Item2);
+                }
+            }
+            // Lowest (first flooded) cells first; the cap keeps the native source count bounded.
+            result.Sort((a, b) => (a.Level - a.Base).CompareTo(b.Level - b.Base));
+            return result;
+        }
+
+        private sealed class MinHeap
+        {
+            private readonly List<(float key, int x, int z)> _items = new List<(float, int, int)>();
+            public int Count => _items.Count;
+            public void Push(float key, int x, int z)
+            {
+                _items.Add((key, x, z));
+                for (int i = _items.Count - 1; i > 0;)
+                {
+                    int parent = (i - 1) / 2;
+                    if (_items[parent].key <= _items[i].key) break;
+                    var swap = _items[parent]; _items[parent] = _items[i]; _items[i] = swap; i = parent;
+                }
+            }
+            public (float key, int x, int z) Pop()
+            {
+                var top = _items[0];
+                _items[0] = _items[_items.Count - 1]; _items.RemoveAt(_items.Count - 1);
+                for (int i = 0; ;)
+                {
+                    int l = i * 2 + 1, r = l + 1, m = i;
+                    if (l < _items.Count && _items[l].key < _items[m].key) m = l;
+                    if (r < _items.Count && _items[r].key < _items[m].key) m = r;
+                    if (m == i) break;
+                    var swap = _items[m]; _items[m] = _items[i]; _items[i] = swap; i = m;
+                }
+                return top;
+            }
+        }
+
+        // A plain cell joins the flood once the rising water stands this far above its crossing level.
+        public static bool PlainActive(PlainCell cell, float rise) => cell.Base + rise >= cell.Level + .4f;
+        // Freshly reached ground marks the advancing edge of the flood (foam and debris there).
+        public static float PlainFront(PlainCell cell, float rise)
+        {
+            float over = cell.Base + rise - cell.Level - .4f;
+            return over < 0 || over >= 2.5f ? 0 : 1 - over / 2.5f;
         }
     }
 }

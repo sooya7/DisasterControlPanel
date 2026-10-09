@@ -17,9 +17,11 @@ namespace DisasterControlPanel
         public static float FoamOpacity(float depth, float slope)
             => depth <= .5f ? 0 : Math.Min(.65f, Math.Max(0, slope - .015f) * 4f);
         public static bool HitsGround(float height, float ground, float age) => age > .12f && height <= ground + .8f;
-        public static float CrackOpacity(float age) => age < 0 ? 0 : Math.Min(1,age*2)*Fade(Math.Max(0,age-10),14);
+        // Seconds after impact a disaster's visuals may live: the fault stays open, the meteor
+        // plume and cooling crater outlast the blast.
+        public static float Lifetime(int kind) => kind == 1 ? 75 : kind == 2 ? 40 : 24;
         public static bool KeepTail(bool present, bool cancelled, int kind, uint frame, uint end, float age)
-            => !present && !cancelled && kind>=1 && kind<=3 && frame>=end && age<24;
+            => !present && !cancelled && kind>=1 && kind<=3 && frame>=end && age<Lifetime(kind);
         public static float Fade(float age, float life)
             => age < 0f || age >= life ? 0f : 1f - age / life;
         public static float DebrisHeight(float age, float speed)

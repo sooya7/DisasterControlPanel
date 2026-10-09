@@ -23,7 +23,7 @@ namespace DisasterControlPanel
 #if DCP_DEV
             updateSystem.UpdateAt<DevServerSystem>(SystemUpdatePhase.UIUpdate);
 #endif
-            Log.Info("DisasterControlPanel 0.2.0 loaded");
+            Log.Info("DisasterControlPanel 0.2.2 loaded");
         }
         public void OnDispose()
         {

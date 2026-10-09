@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DisasterControlPanel;
 
@@ -134,7 +135,7 @@ Check(DisasterVisualRules.HitsGround(101,102,1)&&!DisasterVisualRules.HitsGround
 Check(DisasterVisualRules.KeepTail(false,false,1,1000,900,8),"natural event expiry retains ongoing visual tail");
 Check(!DisasterVisualRules.KeepTail(false,true,1,1000,900,8),"explicit stop clears retained visual tail even after expiry");
 Check(!DisasterVisualRules.KeepTail(false,false,1,800,900,8),"early external event removal does not resurrect visuals");
-Check(!DisasterVisualRules.KeepTail(false,false,1,1000,900,24),"retained visual tail has bounded lifetime");
+Check(!DisasterVisualRules.KeepTail(false,false,1,1000,900,DisasterVisualRules.Lifetime(1)),"retained visual tail has bounded lifetime");
 Check(!WaterDisasterRules.WetSegment(0,0,280,0,(x,z)=>x<70 || x>210),"advancing wave cannot skip a dry island into water behind it");
 Check(WaterDisasterRules.WetSegment(0,0,280,280,(x,z)=>true),"diagonal wave path advances through continuous sea");
 Console.WriteLine("PASS: water grade/connected-area/main-tail-wave/map-boundary/stop regression and existing visual timing checks (offline only)");
@@ -197,9 +198,67 @@ for(int level=1;level<=10;level++)
     if(!(b>0&&a>0&&a<1))throw new Exception("crest travelling mid-approach");
     if(WaterDisasterRules.CrestDistance(level,0)!=WaterDisasterRules.TsunamiStart(level)||WaterDisasterRules.CrestDistance(level,1)>=0)throw new Exception("crest starts offshore and reaches the coast");
 }
-var wall=WaterDisasterRules.WallPaths(0,0,0,1,10,7161,(x,z)=>z<300);
-if(wall.Count<20||wall.Exists(col=>col.Exists(cell=>cell.z>=300)))throw new Exception("wall stays on sea cells");
-if(wall.Exists(col=>col[0].distance<col[col.Count-1].distance))throw new Exception("columns ordered offshore to shore");
-var island=WaterDisasterRules.WallPaths(0,0,0,1,10,7161,(x,z)=>z<300 && !(Math.Abs(x)<300&&z>-1500&&z<-1000));
+// Sea for z<300, a coastal plain rising 1 m per 100 m inland, sea level 0.
+Func<float,float,float> plainCoast=(x,z)=>z<300 ? -20f : (z-300)*.01f;
+var wall=WaterDisasterRules.WallPaths(0,0,0,1,10,7161,0,(x,z)=>z<300,plainCoast);
+if(wall.Count<20||wall.Exists(col=>col.Exists(cell=>!cell.Land&&cell.Z>=300)))throw new Exception("wall sea cells stay on sea");
+if(wall.Exists(col=>col.Zip(col.Skip(1),(a,b)=>a.Distance>b.Distance).Contains(false)))throw new Exception("columns ordered offshore to inland");
+if(!wall.TrueForAll(col=>col.Exists(cell=>cell.Land)))throw new Exception("level 10 wave runs up a low coastal plain");
+float runUp10=WaterDisasterRules.RunUp(10);
+if(wall.Exists(col=>col.Exists(cell=>cell.Land&&(cell.Inland>runUp10||cell.Surface<=plainCoast(cell.X,cell.Z)))))throw new Exception("run-up stays below the decaying wave and within reach");
+// A 30 m sea wall 200 m inland stops a level 3 wave but not the level 10 one.
+Func<float,float,float> seawall=(x,z)=>z<300 ? -20f : z>=500&&z<520 ? 30f : 2f;
+var low=WaterDisasterRules.WallPaths(0,0,0,1,3,7161,0,(x,z)=>z<300,seawall);
+if(low.Exists(col=>col.Exists(cell=>cell.Land&&cell.Z>=500)))throw new Exception("high ground protects land behind it");
+var high=WaterDisasterRules.WallPaths(0,0,0,1,10,7161,0,(x,z)=>z<300,seawall);
+if(!high.Exists(col=>col.Exists(cell=>cell.Land&&cell.Z>520)))throw new Exception("strong wave overtops a lower barrier");
+// A cliff coast admits no run-up at all.
+var cliff=WaterDisasterRules.WallPaths(0,0,0,1,10,7161,0,(x,z)=>z<300,(x,z)=>z<300 ? -20f : 200f);
+if(cliff.Exists(col=>col.Exists(cell=>cell.Land&&cell.Z>=300)))throw new Exception("cliff stops the wave at the shore");
+for(int level=1;level<=10;level++)
+{
+    if(level>1&&WaterDisasterRules.RunUp(level)<=WaterDisasterRules.RunUp(level-1))throw new Exception("stronger waves reach further inland");
+    if(WaterDisasterRules.CrestDistance(level,1)>-(WaterDisasterRules.BeyondOrigin+WaterDisasterRules.RunUp(level))+1)throw new Exception("crest travel covers the run-up");
+    float lastHeight=0;
+    for(float d=WaterDisasterRules.TsunamiStart(level);d>=0;d-=200)
+    {
+        float h=WaterDisasterRules.Shoal(level,d);
+        if(h<lastHeight-1e-5f||h<.6f||h>1)throw new Exception("wave steepens toward the coast");lastHeight=h;
+    }
+}
+if(WaterDisasterRules.LandDecay(0)!=1||WaterDisasterRules.LandDecay(1)!=0||!(WaterDisasterRules.LandDecay(.5f)<1))throw new Exception("crest decays inland");
+var island=WaterDisasterRules.WallPaths(0,0,0,1,10,7161,0,(x,z)=>z<300 && !(Math.Abs(x)<300&&z>-1500&&z<-1000),plainCoast);
 if(WaterDisasterRules.CrestCell(island[island.Count/2],1200)<0)throw new Exception("wall passes islands");
-Console.WriteLine("PASS: travelling tsunami wall timing, bounds, sea-only columns (offline only)");
+// Crest motion between cells never leaves the two verified footprints.
+foreach(var (ra,rb,gap) in new[]{(110f,110f,112f),(110f,40f,112f),(64f,64f,56f),(30f,30f,112f)})
+for(float f=0;f<=1.0001f;f+=.05f)
+{
+    float r=WaterDisasterRules.BlendRadius(ra,rb,gap,f),cx=gap*f;
+    if(r<7)continue; // no source is placed at all
+    for(int k=0;k<72;k++)for(float q=0;q<=1.0001f;q+=.25f)
+    {
+        double px=cx+Math.Cos(k*Math.PI/36)*r*q,pz=Math.Sin(k*Math.PI/36)*r*q;
+        if(Math.Sqrt(px*px+pz*pz)>ra+1e-3&&Math.Sqrt((px-gap)*(px-gap)+pz*pz)>rb+1e-3)throw new Exception("blended crest footprint stays covered");
+    }
+    if(f==0&&Math.Abs(r-ra)>1e-3)throw new Exception("blend starts at the full first footprint");
+}
+// Flood plain: river at 380 m in a 200 m wide channel, banks rise 1 m per 50 m.
+(float,float) Valley(float x,float z){float d=Math.Abs(x);return d<100 ? (377f,3f) : (380f+(d-100)*.02f,0f);}
+var plain=WaterDisasterRules.FloodPlain(0,0,10,7161,Valley);
+if(plain.Count<50)throw new Exception("high flood spreads over the valley floor");
+if(!plain.TrueForAll(c=>Math.Abs(c.Base-380)<.01f&&c.Level>=Valley(c.X,c.Z).Item1-1e-3f))throw new Exception("plain cells keep their feeding surface and crossing level");
+if(!plain.TrueForAll(c=>c.Level<380+WaterDisasterRules.PeakHeight(10,10)))throw new Exception("plain bounded by full flood height");
+if(plain.Zip(plain.Skip(1),(a,b)=>a.Level-a.Base<=b.Level-b.Base+1e-4f).Contains(false))throw new Exception("lowest ground floods first");
+var small=WaterDisasterRules.FloodPlain(0,0,1,7161,Valley);
+if(!small.TrueForAll(c=>Math.Abs(c.X)<100+1.5f/.02f+64))throw new Exception("level one flood only reaches the lowest banks");
+// A levee higher than the flood protects the low town behind it.
+(float,float) Levee(float x,float z){float d=Math.Abs(x);return d<100 ? (377f,3f) : d<140 ? (395f,0f) : (379f,0f);}
+var levee=WaterDisasterRules.FloodPlain(0,0,3,7161,Levee);
+if(levee.Exists(c=>Math.Abs(c.X)>=140))throw new Exception("levee above level 3 flood keeps the town dry");
+var overtop=WaterDisasterRules.FloodPlain(0,0,10,7161,Levee);
+if(!overtop.Exists(c=>Math.Abs(c.X)>=200&&c.Level>=395-1e-3f))throw new Exception("overtopped levee floods behind it only once water passes the crest");
+if(WaterDisasterRules.FloodPlain(0,0,10,7161,(x,z)=>(390f,0f)).Count!=0)throw new Exception("dry click has no plain");
+var cellA=new WaterDisasterRules.PlainCell{X=0,Z=0,Level=383,Base=380};
+if(WaterDisasterRules.PlainActive(cellA,2.5f)||!WaterDisasterRules.PlainActive(cellA,3.5f))throw new Exception("plain activates once water stands above it");
+if(WaterDisasterRules.PlainFront(cellA,3.5f)<=0||WaterDisasterRules.PlainFront(cellA,6.5f)!=0)throw new Exception("front marks freshly reached ground only");
+Console.WriteLine("PASS: travelling tsunami wall timing, bounds, sea-only columns, run-up over low ground, crest blending, flood plain priority fill (offline only)");

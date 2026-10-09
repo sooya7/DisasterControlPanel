@@ -153,7 +153,7 @@
     var type = types.filter(function (t) { return t.id === s.selected; })[0];
     pickTitle.textContent = type ? '点击地图触发“' + type.name + '”' : '左键点击地图，立即触发';
     spawn.textContent = s.pending ? '正在初始化…' : '在地图上触发';
-    var descriptions = { building: '点燃指定建筑，由原生消防系统处理。', forest: '点燃指定野生树木，火势可向周边蔓延。', weather: '在选定位置形成原生天气事件，随后受风向影响移动。', earthquake: '三轮震动、地表裂纹与沿地面扩散的扬尘；强震可造成建筑倒塌。', meteor: '陨石拖着尾焰坠落，撞击后闪光、碎片和烟尘扩散，并留下真实地形坑。', sinkhole: '预警后地形下陷，坑内建筑倒塌。停止不会填平坑洞。', flood: '点想淹的位置，附近水域沿相连水面逐渐上涨。高等级扩大涨水范围，漫岸与高地阻挡由地形决定。', tsunami: '点想冲击的海岸，海水先退，远海涌起一道浪墙推向岸边，随后还有一道尾浪。等级越高浪墙越宽越高，高地仍可幸免。' };
+    var descriptions = { building: '点燃指定建筑，由原生消防系统处理。', forest: '点燃指定野生树木，火势可向周边蔓延。', weather: '在选定位置形成原生天气事件，随后受风向影响移动。', earthquake: '一条断层从震中向两侧撕开，三轮震动逐次加宽并抬起断坎，裂口与建筑扬尘；强震可造成建筑倒塌。', meteor: '火球拖着长烟迹从高空斜落，撞击时火球闪光、冲击尘环和蘑菇状烟柱，熔融坑冷却，并留下真实地形坑。', sinkhole: '预警后地形下陷，坑内建筑倒塌。停止不会填平坑洞。', flood: '点想淹的位置，附近水域逐渐上涨，水边一步步漫进相连的低洼街区。高等级涨得更高更远，堤坝和高地挡住的地方不进水。', tsunami: '点想冲击的海岸，海水先退，远海涌起一道浪墙越推越高，冲上岸后继续向内陆卷去，随后还有一道尾浪。等级越高浪墙越宽越高、冲得越远，高地仍可幸免。' };
     description.textContent = type ? descriptions[type.kind] || type.name : '选择一种灾难，再在地图上指定发生位置。';
     levelValue.textContent = tierName(s.level);
     levelButtons.forEach(function (b) { var on = tierName(Number(b.getAttribute('data-level'))) === tierName(s.level); b.className = 'dcp-level' + (on ? ' dcp-selected' : ''); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
